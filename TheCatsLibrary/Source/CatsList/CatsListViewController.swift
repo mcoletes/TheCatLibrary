@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  CatsListViewController.swift
 //  TheCatsLibrary
 //
 //  Created by Mauro Coletes on 24/08/20.
@@ -8,13 +8,10 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class CatsListViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        self.title = "Cats List"
     }
-
-
 }
-
