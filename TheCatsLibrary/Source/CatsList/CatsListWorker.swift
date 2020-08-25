@@ -14,7 +14,7 @@ import UIKit
 
 class CatsListWorker
 {
-    func fetchCatsList(request: CatsList.Request, completion: @escaping completionDataCallback<CatsList.Response>) {
+    func fetchCatsList(request: CatsList.Request, completion: @escaping completionDataCallback<[Cat]>) {
         let catsListProvider = CatsListProvider(request: request)
         NetworkProvider(route: catsListProvider).fetch(completion: completion)
     }

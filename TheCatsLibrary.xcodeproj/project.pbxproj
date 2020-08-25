@@ -17,6 +17,7 @@
 		9463F50224F4AB8E00186BDB /* CatsListModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9463F4FC24F4AB8E00186BDB /* CatsListModels.swift */; };
 		9463F50324F4AB8E00186BDB /* CatsListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9463F4FD24F4AB8E00186BDB /* CatsListViewController.swift */; };
 		9463F50424F4AB8E00186BDB /* CatsListInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9463F4FE24F4AB8E00186BDB /* CatsListInteractor.swift */; };
+		9463F50724F4B26900186BDB /* Cat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9463F50624F4B26900186BDB /* Cat.swift */; };
 		94F5BF5924F49E6F0005C3E6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94F5BF5824F49E6F0005C3E6 /* AppDelegate.swift */; };
 		94F5BF6224F49E6F0005C3E6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 94F5BF6124F49E6F0005C3E6 /* Assets.xcassets */; };
 		94F5BF6524F49E6F0005C3E6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 94F5BF6324F49E6F0005C3E6 /* LaunchScreen.storyboard */; };
@@ -61,6 +62,7 @@
 		9463F4FC24F4AB8E00186BDB /* CatsListModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatsListModels.swift; sourceTree = "<group>"; };
 		9463F4FD24F4AB8E00186BDB /* CatsListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatsListViewController.swift; sourceTree = "<group>"; };
 		9463F4FE24F4AB8E00186BDB /* CatsListInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatsListInteractor.swift; sourceTree = "<group>"; };
+		9463F50624F4B26900186BDB /* Cat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cat.swift; sourceTree = "<group>"; };
 		94F5BF5524F49E6F0005C3E6 /* TheCatsLibrary.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TheCatsLibrary.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		94F5BF5824F49E6F0005C3E6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		94F5BF6124F49E6F0005C3E6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -142,6 +144,14 @@
 			path = Provider;
 			sourceTree = "<group>";
 		};
+		9463F50524F4B25B00186BDB /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				9463F50624F4B26900186BDB /* Cat.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 		94F5BF4C24F49E6F0005C3E6 = {
 			isa = PBXGroup;
 			children = (
@@ -196,6 +206,7 @@
 		94F5BF8824F49EA70005C3E6 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				9463F50524F4B25B00186BDB /* Models */,
 				94F5BF8C24F4A0CF0005C3E6 /* Network */,
 			);
 			path = Common;
@@ -519,6 +530,7 @@
 				9463F50324F4AB8E00186BDB /* CatsListViewController.swift in Sources */,
 				9463F50424F4AB8E00186BDB /* CatsListInteractor.swift in Sources */,
 				94F5BF9424F4A0CF0005C3E6 /* URLRequestProtocol.swift in Sources */,
+				9463F50724F4B26900186BDB /* Cat.swift in Sources */,
 				9463F4E224F4A89200186BDB /* CatsListProvider.swift in Sources */,
 				94F5BF9624F4A1530005C3E6 /* ENV.swift in Sources */,
 				94F5BF9124F4A0CF0005C3E6 /* Logger.swift in Sources */,

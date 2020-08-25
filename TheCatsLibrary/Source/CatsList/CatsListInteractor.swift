@@ -35,10 +35,10 @@ class CatsListInteractor: CatsListBusinessLogic, CatsListDataStore {
     }
     
     func getListOfCats() {
-        worker.fetchCatsList(request: CatsList.Request(page: currentPage, limit: pageSize)) { (result) in
+        worker.fetchCatsList(request: CatsList.Request(page: currentPage, limit: pageSize)) { [weak self] (result) in
             switch result {
             case .success(let response):
-                self.presenter?.stopAnimating()
+                self?.presenter?.stopAnimating()
                 print(response)
             case .failure(let error):
                  print(error)

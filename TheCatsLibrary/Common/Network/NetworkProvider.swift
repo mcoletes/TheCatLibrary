@@ -30,6 +30,7 @@ class NetworkProvider {
         self.route = route
     }
     
+    @discardableResult
     func fetch<T: Decodable>(completion: @escaping completionDataCallback<T>) -> URLSessionDataTask {
         let request = route.asURLRequest()
                 Logger.logRequest(request: request)

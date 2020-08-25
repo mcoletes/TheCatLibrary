@@ -24,6 +24,7 @@ enum CatsList
     
     struct Response: Codable
     {
+        var cats: [Cat]
     }
     struct ViewModel
     {
