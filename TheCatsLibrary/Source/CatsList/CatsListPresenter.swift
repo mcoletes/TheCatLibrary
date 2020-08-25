@@ -12,12 +12,15 @@
 
 import UIKit
 
-protocol CatsListPresentationLogic
-{
+protocol CatsListPresentationLogic {
+    func stopAnimating()
 }
 
-class CatsListPresenter: CatsListPresentationLogic
-{
+class CatsListPresenter: CatsListPresentationLogic {
+    
   weak var viewController: CatsListDisplayLogic?
   
+    func stopAnimating() {
+        viewController?.stopFirstAnimation()
+    }
 }

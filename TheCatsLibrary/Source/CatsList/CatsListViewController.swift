@@ -14,32 +14,31 @@ import UIKit
 
 protocol CatsListDisplayLogic: class
 {
-    
+    func stopFirstAnimation()
 }
 
 class CatsListViewController: UIViewController, CatsListDisplayLogic
 {
+    @IBOutlet weak var indicatorView: UIActivityIndicatorView!
+    
     var interactor: CatsListBusinessLogic?
     var router: (NSObjectProtocol & CatsListRoutingLogic & CatsListDataPassing)?
     
     // MARK: Init
     
-    override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?)
-    {
+    override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
         setup()
     }
     
-    required init?(coder aDecoder: NSCoder)
-    {
+    required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         setup()
     }
     
     // MARK: Setup
     
-    private func setup()
-    {
+    private func setup() {
         let viewController = self
         let interactor = CatsListInteractor()
         let presenter = CatsListPresenter()
@@ -55,10 +54,14 @@ class CatsListViewController: UIViewController, CatsListDisplayLogic
     
     // MARK: View lifecycle
     
-    override func viewDidLoad()
-    {
+    override func viewDidLoad() {
         super.viewDidLoad()
         interactor?.getListOfCats()
     }
     
+    func stopFirstAnimation() {
+        DispatchQueue.main.async {
+            self.indicatorView.stopAnimating()
+        }
+    }
 }
