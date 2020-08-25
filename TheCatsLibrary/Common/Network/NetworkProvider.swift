@@ -60,7 +60,7 @@ class NetworkProvider {
         if let data = data {
             do {
                 let model = try JSONDecoder().decode(T.self, from: data)
-                completion(Result.success(model))
+                completion(.success(model))
                 return
             }
             catch {
