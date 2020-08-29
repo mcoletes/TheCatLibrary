@@ -106,7 +106,7 @@ class CatsListViewController: UIViewController, CatsListDisplayLogic {
         collectionView.prefetchDataSource = self
         collectionView.dataSource = self
         collectionView.delegate = self
-        self.collectionView.register(LoadingView.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionFooter, withReuseIdentifier: LoadingView.kIdentifier)
+        self.collectionView.register(LoadingView.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionFooter, withReuseIdentifier: LoadingView.defaultReuseIdentifier)
         self.collectionView.register(CatsListCell.self)
     }
     
@@ -169,7 +169,7 @@ extension CatsListViewController: UICollectionViewDelegateFlowLayout {
         
         switch kind {
         case UICollectionView.elementKindSectionFooter:
-            return collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: LoadingView.kIdentifier, for: indexPath)
+            return collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: LoadingView.defaultReuseIdentifier, for: indexPath)
         default:
             assert(false, "Unexpected element kind")
         }

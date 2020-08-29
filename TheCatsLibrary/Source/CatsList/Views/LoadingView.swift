@@ -8,36 +8,38 @@
 
 import UIKit
 
-class LoadingView: UICollectionReusableView {
+class LoadingView: UICollectionReusableView, ReusableView {
     
-    //MARK: constants
-    static let kIdentifier = "LoadingView"
+    //MARK: Private Properties
     
     private lazy var activityIndicator: UIActivityIndicatorView = {
         let activityIndicator = UIActivityIndicatorView(style: .large)
-               activityIndicator.startAnimating()
+        activityIndicator.startAnimating()
         activityIndicator.center = self.center
         return activityIndicator
     }()
     
+    //MARK: Init
     override init(frame: CGRect) {
-           super.init(frame: frame)
-           setup()
-       }
-       
-       required init?(coder: NSCoder) {
-           super.init(coder: coder)
-           setup()
-       }
-       
-       private func setup(){
-           setupUI()
-           addViewHierarchy()
-           addConstraints()
-       }
+        super.init(frame: frame)
+        setup()
+    }
+    
+    required init?(coder: NSCoder) {
+        super.init(coder: coder)
+        setup()
+    }
+    
+    //MARK: Private Methods
+    private func setup(){
+        setupUI()
+        addViewHierarchy()
+        addConstraints()
+    }
+    
     private func setupUI() {
-           translatesAutoresizingMaskIntoConstraints = false
-       }
+        translatesAutoresizingMaskIntoConstraints = false
+    }
 }
 extension LoadingView: ViewCodeProtocol {
     func addViewHierarchy() {
