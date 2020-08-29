@@ -12,18 +12,15 @@
 
 import UIKit
 
-@objc protocol CatsListRoutingLogic
-{
+@objc protocol CatsListRoutingLogic {
   //func routeToSomewhere(segue: UIStoryboardSegue?)
 }
 
-protocol CatsListDataPassing
-{
+protocol CatsListDataPassing {
   var dataStore: CatsListDataStore? { get }
 }
 
-class CatsListRouter: NSObject, CatsListRoutingLogic, CatsListDataPassing
-{
+class CatsListRouter: NSObject, CatsListRoutingLogic, CatsListDataPassing {
   weak var viewController: CatsListViewController?
   var dataStore: CatsListDataStore?
   

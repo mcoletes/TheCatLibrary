@@ -26,14 +26,16 @@ class CatsListViewController: UIViewController, CatsListDisplayLogic {
     @IBOutlet weak var leftCollectionViewMargin: NSLayoutConstraint!
     @IBOutlet weak var rightCollectionViewMargin: NSLayoutConstraint!
     
-    // MARK: Public Properties
+    // MARK: Internal Properties
     
     var interactor: CatsListBusinessLogic?
     var router: (NSObjectProtocol & CatsListRoutingLogic & CatsListDataPassing)?
     
     // MARK: Private Properties
+    
     private var viewModel = CatsList.ViewModel()
     private var footerHeight: CGFloat = 80
+    
     // MARK: Init
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
@@ -99,6 +101,7 @@ class CatsListViewController: UIViewController, CatsListDisplayLogic {
     }
     
     // MARK: Private Methods
+    
     private func setupCollectionView() {
         collectionView.prefetchDataSource = self
         collectionView.dataSource = self
@@ -130,6 +133,7 @@ extension CatsListViewController: UICollectionViewDataSource, UICollectionViewDe
         cell.setup(name: cat.name, description: cat.description)
         return cell
     }
+    
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         print("selectedItem---> \(indexPath.row)")
     }

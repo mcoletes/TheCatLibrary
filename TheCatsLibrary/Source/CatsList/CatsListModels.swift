@@ -12,10 +12,8 @@
 
 import UIKit
 
-enum CatsList
-{
-    // MARK: Use cases
-    
+enum CatsList {
+
     struct Request {
         var page: Int
         var limit: Int
