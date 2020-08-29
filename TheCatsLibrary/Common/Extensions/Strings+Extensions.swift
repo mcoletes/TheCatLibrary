@@ -21,4 +21,8 @@ extension String {
 
         return ceil(boundingBox.width)
     }
+    
+    func localized(withComment comment: String = "") -> String {
+        return NSLocalizedString(self, bundle: Bundle.main, comment: comment)
+    }
 }

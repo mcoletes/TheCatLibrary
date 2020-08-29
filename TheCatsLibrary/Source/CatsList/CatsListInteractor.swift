@@ -46,7 +46,7 @@ class CatsListInteractor: CatsListBusinessLogic, CatsListDataStore {
             switch result {
             case .success(var cats):
                 if let pageSize = self?.pageSize, cats.count < pageSize {
-                    cats.append(Cat(catDescription: "That's all cats that we have in our library!", name: "IT's Over =( 🐱🐱🐱"))
+                    cats.append(Cat(catDescription: Text.catsListLastCatDescription.value, name: Text.catsListLastCatTitle.value))
                     self?.presenter?.stopLoading()
                 }
                 self?.presenter?.presentCats(cats: cats)
@@ -58,7 +58,6 @@ class CatsListInteractor: CatsListBusinessLogic, CatsListDataStore {
     
     func loadNextPageIfNeeded(for index: Int) {
         let targetCount = (currentPage + 1) * pageSize - kItemsToBeConsideredForPrefetch
-        print("targetCount ---> \(targetCount)\nindex -----> \(index)")
         guard index == targetCount else {
             return
         }

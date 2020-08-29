@@ -12,9 +12,3 @@ protocol ViewCodeProtocol {
     func addViewHierarchy()
     func addConstraints()
 }
-
-extension ViewCodeProtocol where Self: UIViewController {
-    func addViewHierarchy() {
-        self.viewDidLoad()
-    }
-}

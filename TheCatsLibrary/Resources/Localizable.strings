@@ -1,0 +1,23 @@
+/* 
+  Localizable.strings
+  TheCatsLibrary
+
+  Created by Mauro Coletes on 29/08/20.
+  Copyright © 2020 Mauro Coletes. All rights reserved.
+*/
+
+
+//=======ERROR/WARNING VIEW==========//
+
+"warningTitle" = "Ops!";
+"warningButtonDismissTitle" = "Ok";
+"warningButtonTryAgain" = "Try again";
+
+//=======CATS LIST==========//
+"catsListTitle" = "Cats List";
+"catsListLastCatTitle" = "IT's Over =( 🐱🐱🐱";
+"catsListLastCatDescription" = "That's all cats that we have in our library!";
+
+
+//=======CAT DETAIL==========//
+"catsDetailTitle" = "Cats Detail";

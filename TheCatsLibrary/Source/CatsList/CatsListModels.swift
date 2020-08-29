@@ -21,7 +21,7 @@ enum CatsList {
     
     struct ViewModel {
         var cats: [CatsList.CatVM] = []
-        var title: String = "Cats Library"
+        var title: String = Text.catsListTitle.value
     }
     
     struct CatVM {
