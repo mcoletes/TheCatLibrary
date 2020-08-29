@@ -64,7 +64,8 @@ class NetworkProvider {
                 completion(.success(model))
                 return
             }
-            catch {
+            catch let error{
+                print(error)
                  completion(.failure(ServiceError.jsonParsingFailure))
                 return
             }

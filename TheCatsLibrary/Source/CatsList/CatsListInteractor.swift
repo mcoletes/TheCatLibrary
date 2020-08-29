@@ -13,7 +13,8 @@
 import UIKit
 
 protocol CatsListBusinessLogic {
-    func getListOfCats()
+    func fetchListOfCats()
+    func loadNextPageIfNeeded(for index: Int)
 }
 
 protocol CatsListDataStore {
@@ -21,28 +22,47 @@ protocol CatsListDataStore {
 
 class CatsListInteractor: CatsListBusinessLogic, CatsListDataStore {
     
-     // MARK: Properties
+    // MARK: Properties
     var presenter: CatsListPresentationLogic?
-    var worker: CatsListWorker
     
-    var currentPage: Int = 0
-    var pageSize: Int = 30
     
-     // MARK: Initializer
+    // MARK: Private Properties
+    private var worker: CatsListWorker
+    private var currentPage: Int = 0
+    private var pageSize: Int = 20
+    private var kItemsToBeConsideredForPrefetch: Int = 1
+    
+    // MARK: Initializer
     
     init(worker: CatsListWorker = CatsListWorker()) {
         self.worker = worker
     }
     
-    func getListOfCats() {
+    // MARK: Methods
+    
+    func fetchListOfCats() {
+        self.presenter?.presentLoading()
         worker.fetchCatsList(request: CatsList.Request(page: currentPage, limit: pageSize)) { [weak self] (result) in
             switch result {
-            case .success(let response):
-                self?.presenter?.stopAnimating()
-                print(response)
+            case .success(var cats):
+                if let pageSize = self?.pageSize, cats.count < pageSize {
+                    cats.append(Cat(catDescription: "That's all cats that we have in our library!", name: "IT's Over =( 🐱🐱🐱"))
+                    self?.presenter?.stopLoading()
+                }
+                self?.presenter?.presentCats(cats: cats)
             case .failure(let error):
-                 print(error)
+                print(error)
             }
         }
+    }
+    
+    func loadNextPageIfNeeded(for index: Int) {
+        let targetCount = (currentPage + 1) * pageSize - kItemsToBeConsideredForPrefetch
+        print("targetCount ---> \(targetCount)\nindex -----> \(index)")
+        guard index == targetCount else {
+            return
+        }
+        currentPage += 1
+        fetchListOfCats()
     }
 }

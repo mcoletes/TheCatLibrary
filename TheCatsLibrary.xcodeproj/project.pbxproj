@@ -18,6 +18,11 @@
 		9463F50324F4AB8E00186BDB /* CatsListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9463F4FD24F4AB8E00186BDB /* CatsListViewController.swift */; };
 		9463F50424F4AB8E00186BDB /* CatsListInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9463F4FE24F4AB8E00186BDB /* CatsListInteractor.swift */; };
 		9463F50724F4B26900186BDB /* Cat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9463F50624F4B26900186BDB /* Cat.swift */; };
+		946BFEDA24FA8E7D00DC974C /* ViewCodeProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 946BFED924FA8E7D00DC974C /* ViewCodeProtocol.swift */; };
+		946BFEDE24FA9E1000DC974C /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 946BFEDD24FA9E1000DC974C /* LoadingView.swift */; };
+		94712DCE24F5EF7B003002C6 /* CatsListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94712DCC24F5EF7B003002C6 /* CatsListCell.swift */; };
+		94712DD224F5F308003002C6 /* ReusableCells.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94712DD124F5F308003002C6 /* ReusableCells.swift */; };
+		949F4C4924F9FC4F00B52DCD /* Strings+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 949F4C4824F9FC4F00B52DCD /* Strings+Extensions.swift */; };
 		94F5BF5924F49E6F0005C3E6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94F5BF5824F49E6F0005C3E6 /* AppDelegate.swift */; };
 		94F5BF6224F49E6F0005C3E6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 94F5BF6124F49E6F0005C3E6 /* Assets.xcassets */; };
 		94F5BF6524F49E6F0005C3E6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 94F5BF6324F49E6F0005C3E6 /* LaunchScreen.storyboard */; };
@@ -63,6 +68,11 @@
 		9463F4FD24F4AB8E00186BDB /* CatsListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatsListViewController.swift; sourceTree = "<group>"; };
 		9463F4FE24F4AB8E00186BDB /* CatsListInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatsListInteractor.swift; sourceTree = "<group>"; };
 		9463F50624F4B26900186BDB /* Cat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cat.swift; sourceTree = "<group>"; };
+		946BFED924FA8E7D00DC974C /* ViewCodeProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewCodeProtocol.swift; sourceTree = "<group>"; };
+		946BFEDD24FA9E1000DC974C /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
+		94712DCC24F5EF7B003002C6 /* CatsListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatsListCell.swift; sourceTree = "<group>"; };
+		94712DD124F5F308003002C6 /* ReusableCells.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReusableCells.swift; sourceTree = "<group>"; };
+		949F4C4824F9FC4F00B52DCD /* Strings+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Strings+Extensions.swift"; sourceTree = "<group>"; };
 		94F5BF5524F49E6F0005C3E6 /* TheCatsLibrary.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TheCatsLibrary.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		94F5BF5824F49E6F0005C3E6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		94F5BF6124F49E6F0005C3E6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -152,6 +162,32 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
+		94712DCB24F5EF60003002C6 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				94712DCC24F5EF7B003002C6 /* CatsListCell.swift */,
+				946BFEDD24FA9E1000DC974C /* LoadingView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		94712DD024F5F300003002C6 /* Configuration */ = {
+			isa = PBXGroup;
+			children = (
+				94712DD124F5F308003002C6 /* ReusableCells.swift */,
+				946BFED924FA8E7D00DC974C /* ViewCodeProtocol.swift */,
+			);
+			path = Configuration;
+			sourceTree = "<group>";
+		};
+		949F4C4724F9FC3300B52DCD /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				949F4C4824F9FC4F00B52DCD /* Strings+Extensions.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		94F5BF4C24F49E6F0005C3E6 = {
 			isa = PBXGroup;
 			children = (
@@ -206,6 +242,8 @@
 		94F5BF8824F49EA70005C3E6 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				949F4C4724F9FC3300B52DCD /* Extensions */,
+				94712DD024F5F300003002C6 /* Configuration */,
 				9463F50524F4B25B00186BDB /* Models */,
 				94F5BF8C24F4A0CF0005C3E6 /* Network */,
 			);
@@ -253,6 +291,7 @@
 		94F5BF9B24F4A5080005C3E6 /* CatsList */ = {
 			isa = PBXGroup;
 			children = (
+				94712DCB24F5EF60003002C6 /* Views */,
 				9463F4E024F4A87E00186BDB /* Provider */,
 				9463F4FA24F4AB8E00186BDB /* CatsListWorker.swift */,
 				9463F4FB24F4AB8E00186BDB /* CatsListRouter.swift */,
@@ -524,15 +563,20 @@
 			files = (
 				94F5BF9324F4A0CF0005C3E6 /* ServiceError.swift in Sources */,
 				9463F50024F4AB8E00186BDB /* CatsListWorker.swift in Sources */,
+				946BFEDA24FA8E7D00DC974C /* ViewCodeProtocol.swift in Sources */,
 				9463F4FF24F4AB8E00186BDB /* CatsListPresenter.swift in Sources */,
 				9463F50224F4AB8E00186BDB /* CatsListModels.swift in Sources */,
+				94712DD224F5F308003002C6 /* ReusableCells.swift in Sources */,
 				94F5BF5924F49E6F0005C3E6 /* AppDelegate.swift in Sources */,
+				949F4C4924F9FC4F00B52DCD /* Strings+Extensions.swift in Sources */,
 				9463F50324F4AB8E00186BDB /* CatsListViewController.swift in Sources */,
 				9463F50424F4AB8E00186BDB /* CatsListInteractor.swift in Sources */,
+				94712DCE24F5EF7B003002C6 /* CatsListCell.swift in Sources */,
 				94F5BF9424F4A0CF0005C3E6 /* URLRequestProtocol.swift in Sources */,
 				9463F50724F4B26900186BDB /* Cat.swift in Sources */,
 				9463F4E224F4A89200186BDB /* CatsListProvider.swift in Sources */,
 				94F5BF9624F4A1530005C3E6 /* ENV.swift in Sources */,
+				946BFEDE24FA9E1000DC974C /* LoadingView.swift in Sources */,
 				94F5BF9124F4A0CF0005C3E6 /* Logger.swift in Sources */,
 				94F5BF9224F4A0CF0005C3E6 /* NetworkProvider.swift in Sources */,
 				9463F50124F4AB8E00186BDB /* CatsListRouter.swift in Sources */,

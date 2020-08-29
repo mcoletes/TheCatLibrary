@@ -16,17 +16,18 @@ enum CatsList
 {
     // MARK: Use cases
     
-    struct Request
-    {
+    struct Request {
         var page: Int
         var limit: Int
     }
     
-    struct Response: Codable
-    {
-        var cats: [Cat]
+    struct ViewModel {
+        var cats: [CatsList.CatVM] = []
+        var title: String = "Cats Library"
     }
-    struct ViewModel
-    {
+    
+    struct CatVM {
+        var name: String
+        var description: String
     }
 }

@@ -12,20 +12,29 @@
 
 import UIKit
 
-protocol CatsListDisplayLogic: class
-{
-    func stopFirstAnimation()
+protocol CatsListDisplayLogic: class {
+    func startLoading()
+    func stopLoading()
+    func showCats(cats: [CatsList.CatVM])
 }
 
-class CatsListViewController: UIViewController, CatsListDisplayLogic
-{
-    @IBOutlet weak var indicatorView: UIActivityIndicatorView!
+class CatsListViewController: UIViewController, CatsListDisplayLogic {
+    
+    // MARK: IBOutlet
+    
+    @IBOutlet weak var collectionView: UICollectionView!
+    @IBOutlet weak var leftCollectionViewMargin: NSLayoutConstraint!
+    @IBOutlet weak var rightCollectionViewMargin: NSLayoutConstraint!
+    
+    // MARK: Public Properties
     
     var interactor: CatsListBusinessLogic?
     var router: (NSObjectProtocol & CatsListRoutingLogic & CatsListDataPassing)?
     
+    // MARK: Private Properties
+    private var viewModel = CatsList.ViewModel()
+    private var footerHeight: CGFloat = 80
     // MARK: Init
-    
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
         setup()
@@ -34,6 +43,16 @@ class CatsListViewController: UIViewController, CatsListDisplayLogic
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         setup()
+    }
+    
+    // MARK: Override Methods
+    
+    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
+        super.viewWillTransition(to: size, with: coordinator)
+        guard let flowLayout = collectionView.collectionViewLayout as? UICollectionViewFlowLayout else {
+            return
+        }
+        flowLayout.invalidateLayout()
     }
     
     // MARK: Setup
@@ -56,12 +75,99 @@ class CatsListViewController: UIViewController, CatsListDisplayLogic
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        interactor?.getListOfCats()
+        setupTitle()
+        setupCollectionView()
+        fetchCats()
     }
     
-    func stopFirstAnimation() {
+    // MARK: Public Methods
+    
+    func startLoading() {
+        footerHeight = 50
+    }
+    
+    func stopLoading() {
+        footerHeight = 0
+    }
+    
+    func showCats(cats: [CatsList.CatVM]) {
+        viewModel.cats.append(contentsOf: cats)
+        
         DispatchQueue.main.async {
-            self.indicatorView.stopAnimating()
+            self.collectionView.reloadData()
+        }
+    }
+    
+    // MARK: Private Methods
+    private func setupCollectionView() {
+        collectionView.prefetchDataSource = self
+        collectionView.dataSource = self
+        collectionView.delegate = self
+        self.collectionView.register(LoadingView.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionFooter, withReuseIdentifier: LoadingView.kIdentifier)
+        self.collectionView.register(CatsListCell.self)
+    }
+    
+    private func setupTitle() {
+        self.title = viewModel.title
+    }
+    
+    private func fetchCats() {
+        interactor?.fetchListOfCats()
+    }
+}
+
+extension CatsListViewController: UICollectionViewDataSource, UICollectionViewDelegate {
+    
+    // MARK: UICollectionViewDataSource, UICollectionViewDelegate
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return viewModel.cats.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell: CatsListCell = collectionView.dequeueReusableCell(forIndexPath: indexPath)
+        let cat = viewModel.cats[indexPath.row]
+        cell.setup(name: cat.name, description: cat.description)
+        return cell
+    }
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        print("selectedItem---> \(indexPath.row)")
+    }
+}
+extension CatsListViewController: UICollectionViewDataSourcePrefetching {
+    func collectionView(_ collectionView: UICollectionView, prefetchItemsAt indexPaths: [IndexPath]) {
+        for indexPath in indexPaths {
+            interactor?.loadNextPageIfNeeded(for: indexPath.row)
+        }
+    }
+}
+extension CatsListViewController: UICollectionViewDelegateFlowLayout {
+    
+    // MARK: UICollectionViewDelegateFlowLayout
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        let cat = viewModel.cats[indexPath.row]
+        let width = collectionView.bounds.width - (2 * CatsListCell.kStackViewBorders)
+        
+        let titleSize = cat.name.height(withConstrainedWidth: width , font: CatsListCell.kFontTitle)
+        let descriptionSize = cat.description.height(withConstrainedWidth: width, font: CatsListCell.kFontDescription)
+        
+        //title necessary height + description necessaryHeight + Cats List stack view spacing between elements + 2 times borders (top and bottom)
+        //used this aproach because prefetch does not work when colection view layout is set to UICollectionViewFlowLayout.automaticSize
+        return CGSize(width: collectionView.bounds.width, height: (titleSize + descriptionSize + CatsListCell.kSpacingStackViewElements + (2 * CatsListCell.kStackViewBorders)))
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForFooterInSection section: Int) -> CGSize {
+        return CGSize(width: collectionView.frame.width, height: footerHeight)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
+        
+        switch kind {
+        case UICollectionView.elementKindSectionFooter:
+            return collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: LoadingView.kIdentifier, for: indexPath)
+        default:
+            assert(false, "Unexpected element kind")
         }
     }
 }

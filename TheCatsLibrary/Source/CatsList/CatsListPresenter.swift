@@ -13,14 +13,29 @@
 import UIKit
 
 protocol CatsListPresentationLogic {
-    func stopAnimating()
+    func presentLoading()
+    func stopLoading()
+    func presentCats(cats: [Cat])
 }
 
 class CatsListPresenter: CatsListPresentationLogic {
     
   weak var viewController: CatsListDisplayLogic?
   
-    func stopAnimating() {
-        viewController?.stopFirstAnimation()
+    func presentLoading() {
+        viewController?.startLoading()
+    }
+    
+    func stopLoading() {
+        viewController?.stopLoading()
+    }
+    
+    func presentCats(cats: [Cat]) {
+        var catsList: [CatsList.CatVM] = []
+        for cat in cats {
+            catsList.append(CatsList.CatVM(name: cat.name, description: cat.catDescription))
+        }
+        
+        viewController?.showCats(cats: catsList)
     }
 }
