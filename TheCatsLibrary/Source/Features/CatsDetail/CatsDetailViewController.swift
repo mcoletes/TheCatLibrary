@@ -18,7 +18,7 @@ class CatsDetailViewController: UIViewController, CustomizableView, ViewControll
     
     var items: [CatsDetail.CatsDetailType] = []
     var viewModel: CatsDetailViewModelProtocol
-
+    
     // MARK: - Private Properties
     
     private var indexPath: IndexPath?
@@ -56,9 +56,11 @@ class CatsDetailViewController: UIViewController, CustomizableView, ViewControll
             guard let self = self, let items = catDetail?.items else { return }
             self.items = items
             self.customView.reload()
+            
         }
         viewModel.title.bind { [weak self] title in
             self?.title = title
+            
         }
         
         viewModel.state.bind { [weak self] state in
@@ -102,9 +104,6 @@ extension CatsDetailViewController: UITableViewDataSource, UITableViewDelegate {
             let cell: HorizontalScrollCell = tableView.dequeueReusableCell(forIndexPath: indexPath)
             cell.setup(behaviour: behaviour)
             return cell
-            //            let cell: ImageValueDescriptionCell = tableView.dequeueReusableCell(forIndexPath: indexPath)
-            //            cell.setup(title: text, subtitle: value, image: icon)
-            //            return cell
         }
     }
 }

@@ -11,6 +11,7 @@ import FBSnapshotTestCase
 
 
 //https://osinski.dev/posts/snapshot-testing-self-sizing-table-view-cells/
+
 final class TableViewCellSnapshotContainer<Cell: UITableViewCell>: UIView, UITableViewDataSource, UITableViewDelegate {
     typealias CellConfigurator = (_ cell: Cell) -> ()
     typealias HeightResolver = ((_ width: CGFloat) -> (CGFloat))
@@ -32,7 +33,6 @@ final class TableViewCellSnapshotContainer<Cell: UITableViewCell>: UIView, UITab
         
         super.init(frame: .zero)
         
-        // 1
         tableView.separatorStyle = .none
         tableView.contentInset = .zero
         tableView.tableFooterView = UIView()
@@ -45,12 +45,12 @@ final class TableViewCellSnapshotContainer<Cell: UITableViewCell>: UIView, UITab
         tableView.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
-            tableView.topAnchor.constraint(equalTo: topAnchor), // 2
+            tableView.topAnchor.constraint(equalTo: topAnchor),
             tableView.bottomAnchor.constraint(equalTo: bottomAnchor),
             tableView.leadingAnchor.constraint(equalTo: leadingAnchor),
             tableView.trailingAnchor.constraint(equalTo: trailingAnchor),
             widthAnchor.constraint(equalToConstant: width),
-            heightAnchor.constraint(greaterThanOrEqualToConstant: 1.0) // 3
+            heightAnchor.constraint(greaterThanOrEqualToConstant: 1.0)
         ])
     }
     
@@ -71,7 +71,7 @@ final class TableViewCellSnapshotContainer<Cell: UITableViewCell>: UIView, UITab
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return heightForWidth?(frame.width) ?? UITableView.automaticDimension // 4
+        return heightForWidth?(frame.width) ?? UITableView.automaticDimension
     }
 }
 
@@ -79,16 +79,13 @@ final class TableViewCellSnapshotContainer<Cell: UITableViewCell>: UIView, UITab
 final class SnapshotTableView: UITableView {
     override var contentSize: CGSize {
         didSet {
-            // 5
             invalidateIntrinsicContentSize()
         }
     }
     
     override var intrinsicContentSize: CGSize {
-        // 6
         layoutIfNeeded()
         
-        // 7
         return CGSize(width: UIView.noIntrinsicMetric, height: contentSize.height)
     }
 }

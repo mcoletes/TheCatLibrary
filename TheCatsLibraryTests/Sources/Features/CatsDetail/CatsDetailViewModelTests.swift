@@ -13,7 +13,7 @@ class CatsDetailViewModelTests: XCTestCase {
     private var sut: CatsDetailViewModel!
     private var viewController: CatsDetailViewControllerMock!
     private var worker: CatsDetailWorkerMock!
-    
+
     override func setUp() {
         super.setUp()
         worker = CatsDetailWorkerMock()
@@ -21,11 +21,11 @@ class CatsDetailViewModelTests: XCTestCase {
         sut = CatsDetailViewModel(cat: catsList.first!, worker: worker)
         viewController = CatsDetailViewControllerMock(viewModel: sut)
     }
-    
+
     override func tearDown() {
         sut = nil
     }
-    
+
     func testSuccessFirstLoad() {
         worker.status = .success
         sut.initializer()
@@ -36,7 +36,7 @@ class CatsDetailViewModelTests: XCTestCase {
             XCTAssertNotEqual(self.viewController.status, Status.error(error: Text.catsDetailErrorMessage.value))
         }
     }
-    
+
     func testSuccessAfterImageLoaded() {
         sut.initializer()
         worker.status = .success
@@ -48,7 +48,7 @@ class CatsDetailViewModelTests: XCTestCase {
             XCTAssertNotEqual(self.viewController.status, Status.error(error: Text.catsDetailErrorMessage.value))
         }
     }
-    
+
     func testError() {
         worker.status = .error
         sut.fetchCatDetails()
