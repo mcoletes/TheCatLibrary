@@ -15,7 +15,8 @@ import UIKit
 protocol CatsListPresentationLogic {
     func presentLoading()
     func stopLoading()
-    func presentCats(cats: [Cat])
+    func presentCats(cats: [Cat], isLastPage: Bool)
+    func presentCatDetail()
 }
 
 class CatsListPresenter: CatsListPresentationLogic {
@@ -30,12 +31,17 @@ class CatsListPresenter: CatsListPresentationLogic {
         viewController?.stopLoading()
     }
     
-    func presentCats(cats: [Cat]) {
-        var catsList: [CatsList.CatVM] = []
-        for cat in cats {
-            catsList.append(CatsList.CatVM(name: cat.name, description: cat.catDescription))
+    func presentCats(cats: [Cat], isLastPage: Bool) {
+        var catsList = cats.map({ CatsList.CatVM(name: $0.name, description: $0.description, color: CatsList.Color.blue) })
+
+        if isLastPage {
+            catsList.append(CatsList.CatVM(name: Text.catsListLastCatTitle.value, description: Text.catsListLastCatDescription.value, color: CatsList.Color.black))
         }
         
         viewController?.showCats(cats: catsList)
+    }
+    
+    func presentCatDetail() {
+        viewController?.showCatDetail()
     }
 }

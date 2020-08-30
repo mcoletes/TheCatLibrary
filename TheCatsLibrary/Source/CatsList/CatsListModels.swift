@@ -13,10 +13,24 @@
 import UIKit
 
 enum CatsList {
-
+    
     struct Request {
         var page: Int
         var limit: Int
+    }
+    
+    enum Color {
+        case blue
+        case black
+        
+        var color: UIColor {
+            switch self {
+            case .black:
+                return .black
+            case .blue:
+                return .systemBlue
+            }
+        }
     }
     
     struct ViewModel {
@@ -27,5 +41,6 @@ enum CatsList {
     struct CatVM {
         var name: String
         var description: String
+        var color: CatsList.Color
     }
 }

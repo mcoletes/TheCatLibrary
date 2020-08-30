@@ -12,10 +12,10 @@ class CatsListCell: UICollectionViewCell, ReusableView {
     
     
     //MARK: constants
-    static let kSpacingStackViewElements: CGFloat = 8
-    static let kStackViewBorders: CGFloat = 16
-    static let kFontTitle: UIFont = UIFont.systemFont(ofSize: 22, weight: .semibold)
-    static let kFontDescription: UIFont = UIFont.systemFont(ofSize: 18)
+    static let kSpacingStackViewElements: CGFloat = Spacing.defaultStackViewSpacing.rawValue
+    static let kStackViewBorders: CGFloat = Spacing.defaultMarginSpacing.rawValue
+    static let kFontTitle: UIFont = Font.Large.title.value
+    static let kFontDescription: UIFont = Font.Large.subtitle.value
     
     
     //MARK: Private Properties
@@ -57,9 +57,10 @@ class CatsListCell: UICollectionViewCell, ReusableView {
     }()
     
     
-    func setup(name: String, description: String) {
-        self.nameLabel.text = name
-        self.descriptionLabel.text = description
+    func setup(name: String, description: String, color: UIColor) {
+        nameLabel.text = name
+        descriptionLabel.text = description
+        mainView.backgroundColor = color
     }
     
     override init(frame: CGRect) {

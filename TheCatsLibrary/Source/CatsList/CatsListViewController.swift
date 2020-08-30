@@ -16,9 +16,10 @@ protocol CatsListDisplayLogic: class {
     func startLoading()
     func stopLoading()
     func showCats(cats: [CatsList.CatVM])
+    func showCatDetail()
 }
 
-class CatsListViewController: UIViewController, CatsListDisplayLogic {
+class CatsListViewController: UIViewController, CatsListDisplayLogic, ViewControllerErrorProtocol {
     
     // MARK: IBOutlet
     
@@ -99,6 +100,9 @@ class CatsListViewController: UIViewController, CatsListDisplayLogic {
             self.collectionView.reloadData()
         }
     }
+    func showCatDetail() {
+        router?.routeToCatDetail()
+    }
     
     // MARK: Private Methods
     
@@ -130,12 +134,12 @@ extension CatsListViewController: UICollectionViewDataSource, UICollectionViewDe
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell: CatsListCell = collectionView.dequeueReusableCell(forIndexPath: indexPath)
         let cat = viewModel.cats[indexPath.row]
-        cell.setup(name: cat.name, description: cat.description)
+        cell.setup(name: cat.name, description: cat.description, color: cat.color.color)
         return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        print("selectedItem---> \(indexPath.row)")
+        interactor?.didSelectCat(for: indexPath.row)
     }
 }
 extension CatsListViewController: UICollectionViewDataSourcePrefetching {

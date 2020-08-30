@@ -15,16 +15,19 @@ import UIKit
 protocol CatsListBusinessLogic {
     func fetchListOfCats()
     func loadNextPageIfNeeded(for index: Int)
+    func didSelectCat(for index: Int)
 }
 
 protocol CatsListDataStore {
+    var cat: Cat? { get set }
 }
 
 class CatsListInteractor: CatsListBusinessLogic, CatsListDataStore {
     
     // MARK: Properties
     var presenter: CatsListPresentationLogic?
-    
+    var availableCats: [Cat] = []
+    var cat: Cat?
     
     // MARK: Private Properties
     private var worker: CatsListWorker
@@ -44,14 +47,18 @@ class CatsListInteractor: CatsListBusinessLogic, CatsListDataStore {
         self.presenter?.presentLoading()
         worker.fetchCatsList(request: CatsList.Request(page: currentPage, limit: pageSize)) { [weak self] (result) in
             switch result {
-            case .success(var cats):
+            case .success(let cats):
+                self?.availableCats.append(contentsOf: cats)
                 if let pageSize = self?.pageSize, cats.count < pageSize {
-                    cats.append(Cat(catDescription: Text.catsListLastCatDescription.value, name: Text.catsListLastCatTitle.value))
+                    self?.presenter?.presentCats(cats: cats, isLastPage: true)
                     self?.presenter?.stopLoading()
+                } else {
+                    self?.presenter?.presentCats(cats: cats, isLastPage: false)
                 }
-                self?.presenter?.presentCats(cats: cats)
+                
             case .failure(let error):
                 print(error)
+                //TODO handle error
             }
         }
     }
@@ -63,5 +70,11 @@ class CatsListInteractor: CatsListBusinessLogic, CatsListDataStore {
         }
         currentPage += 1
         fetchListOfCats()
+    }
+    
+    func didSelectCat(for index: Int) {
+        guard availableCats.count > index else { return }
+        cat = availableCats[index]
+        presenter?.presentCatDetail()
     }
 }
