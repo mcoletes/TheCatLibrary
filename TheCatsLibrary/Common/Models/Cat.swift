@@ -107,11 +107,22 @@ struct Cat: Codable {
     let description: String
     let name: String
     let id: String
-//    enum CodingKeys: String, CodingKey {
-//        case catDescription = "description"
-//        case name = "name"
-//        case id
-//    }
+    let dogFriendly: Int?
+    let catFriendly: Int?
+    let affectionLevel: Int?
+    let vocalisation: Int?
+    let childFriendly: Int?
+    
+    enum CodingKeys: String, CodingKey {
+        case description
+        case name
+        case id
+        case dogFriendly = "dog_friendly"
+        case catFriendly = "cat_friendly"
+        case affectionLevel = "affection_level"
+        case vocalisation
+        case childFriendly = "child_friendly"
+    }
 }
 
 // MARK: - Weight

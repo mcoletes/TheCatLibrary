@@ -1,5 +1,5 @@
 //
-//  TitleSubstitleCell.swift
+//  ImageValueDescriptionCell.swift
 //  TheCatsLibrary
 //
 //  Created by Mauro Coletes on 29/08/20.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class TitleSubstitleCell: UITableViewCell, ReusableView {
+class ImageValueDescriptionCell: UITableViewCell, ReusableView {
     
     private lazy var mainView: UIView = {
         let view = UIView()
@@ -25,6 +25,17 @@ class TitleSubstitleCell: UITableViewCell, ReusableView {
         stackView.axis = .vertical
         stackView.spacing = Spacing.defaultStackViewSpacing.rawValue
         stackView.addArrangedSubview(titleLabel)
+        stackView.addArrangedSubview(horizontalStackView)
+        return stackView
+    }()
+    
+    private lazy var horizontalStackView: UIStackView = {
+        let stackView = UIStackView()
+        stackView.translatesAutoresizingMaskIntoConstraints = false
+        stackView.axis = .horizontal
+        stackView.contentMode = .left
+        stackView.spacing = Spacing.defaultStackViewSpacing.rawValue
+        stackView.addArrangedSubview(icon)
         stackView.addArrangedSubview(subtitleLabel)
         return stackView
     }()
@@ -41,15 +52,22 @@ class TitleSubstitleCell: UITableViewCell, ReusableView {
     private lazy var subtitleLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.font = Font.Small.subtitle.value
+        label.font = Font.Large.title.value
         label.numberOfLines = 0
         label.textColor = .black
         return label
     }()
     
-    func setup(title: String, subtitle: String) {
+    private lazy var icon: UIImageView = {
+        let icon = UIImageView()
+        icon.translatesAutoresizingMaskIntoConstraints = false
+        return icon
+    }()
+    
+    func setup(title: String, subtitle: String, image: String) {
         titleLabel.text = title
         subtitleLabel.text = subtitle
+        icon.image = UIImage(named: image)
     }
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -61,20 +79,19 @@ class TitleSubstitleCell: UITableViewCell, ReusableView {
         setup()
     }
     
-    private func setup(){
+    private func setup() {
         addViewHierarchy()
         addConstraints()
     }
 }
 
-extension TitleSubstitleCell: ViewCodeProtocol {
+extension ImageValueDescriptionCell: ViewCodeProtocol {
     func addViewHierarchy() {
         addSubview(mainView)
         mainView.addSubview(stackView)
     }
     
     func addConstraints() {
-        
         mainView.leadingAnchor.constraint(equalTo: self.leadingAnchor).isActive = true
         mainView.topAnchor.constraint(equalTo: self.topAnchor, constant: Spacing.defaultMarginSpacing.rawValue).isActive = true
         mainView.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -Spacing.defaultMarginSpacing.rawValue).isActive = true
@@ -84,5 +101,9 @@ extension TitleSubstitleCell: ViewCodeProtocol {
         stackView.trailingAnchor.constraint(equalTo: mainView.trailingAnchor, constant: -Spacing.defaultMarginSpacing.rawValue).isActive = true
         stackView.topAnchor.constraint(equalTo: mainView.topAnchor, constant: Spacing.defaultMarginSpacing.rawValue).isActive = true
         stackView.bottomAnchor.constraint(equalTo: mainView.bottomAnchor, constant: -Spacing.defaultMarginSpacing.rawValue).isActive = true
+        
+        icon.heightAnchor.constraint(equalToConstant: 25).isActive = true
+        icon.widthAnchor.constraint(equalToConstant: 25).isActive = true
     }
 }
+

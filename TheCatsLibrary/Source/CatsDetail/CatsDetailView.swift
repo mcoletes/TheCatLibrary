@@ -16,14 +16,8 @@ class CatsDetailView: UIView {
         tableView.rowHeight = UITableView.automaticDimension
         tableView.estimatedRowHeight = 80
         tableView.separatorStyle = .none
+        tableView.showsVerticalScrollIndicator = false
         return tableView
-    }()
-    
-    private lazy var activityIndicator: UIActivityIndicatorView = {
-        let activityIndicator = UIActivityIndicatorView(style: .large)
-        activityIndicator.center = self.center
-        activityIndicator.hidesWhenStopped = true
-        return activityIndicator
     }()
     
     func setup(delegate: UITableViewDelegate, dataSource: UITableViewDataSource) {
@@ -34,12 +28,6 @@ class CatsDetailView: UIView {
         tableView.dataSource = dataSource
         self.backgroundColor = .white
     }
-    func startLoading() {
-        activityIndicator.startAnimating()
-    }
-    func stopLoading() {
-        activityIndicator.stopAnimating()
-    }
     
     func reload() {
         self.tableView.reloadData()
@@ -48,19 +36,19 @@ class CatsDetailView: UIView {
     private func registerCells() {
         self.tableView.register(TitleSubstitleCell.self)
         self.tableView.register(CatsImageCell.self)
+        self.tableView.register(ImageValueDescriptionCell.self)
     }
 }
 
 extension CatsDetailView: ViewCodeProtocol {
     func addViewHierarchy() {
         addSubview(tableView)
-        addSubview(activityIndicator)
     }
     
     func addConstraints() {
-        tableView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: Spacing.defaultMarginSpacing.rawValue).isActive = true
-        tableView.topAnchor.constraint(equalTo: self.topAnchor, constant: Spacing.defaultMarginSpacing.rawValue).isActive = true
-        tableView.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -Spacing.defaultMarginSpacing.rawValue).isActive = true
-        tableView.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -Spacing.defaultMarginSpacing.rawValue).isActive = true
+        tableView.leadingAnchor.constraint(equalTo: self.layoutMarginsGuide.leadingAnchor, constant: Spacing.defaultMarginSpacing.rawValue).isActive = true
+        tableView.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor, constant: Spacing.defaultMarginSpacing.rawValue).isActive = true
+        tableView.bottomAnchor.constraint(equalTo: self.safeAreaLayoutGuide.bottomAnchor, constant: -Spacing.defaultMarginSpacing.rawValue).isActive = true
+        tableView.trailingAnchor.constraint(equalTo: self.layoutMarginsGuide.trailingAnchor, constant: -Spacing.defaultMarginSpacing.rawValue).isActive = true
     }
 }

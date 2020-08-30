@@ -9,6 +9,7 @@
 import Foundation
 
 enum ViewStates {
+    case none
     case loading
     case success
     case error(error: String)

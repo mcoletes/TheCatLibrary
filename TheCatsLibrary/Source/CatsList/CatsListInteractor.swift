@@ -47,7 +47,7 @@ class CatsListInteractor: CatsListBusinessLogic, CatsListDataStore {
         self.presenter?.presentLoading()
         worker.fetchCatsList(request: CatsList.Request(page: currentPage, limit: pageSize)) { [weak self] (result) in
             switch result {
-            case .success(var cats):
+            case .success(let cats):
                 self?.availableCats.append(contentsOf: cats)
                 if let pageSize = self?.pageSize, cats.count < pageSize {
                     self?.presenter?.presentCats(cats: cats, isLastPage: true)
@@ -58,6 +58,7 @@ class CatsListInteractor: CatsListBusinessLogic, CatsListDataStore {
                 
             case .failure(let error):
                 print(error)
+                //TODO handle error
             }
         }
     }

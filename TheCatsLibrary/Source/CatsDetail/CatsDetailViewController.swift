@@ -35,6 +35,7 @@ class CatsDetailViewController: UIViewController, CustomizableView {
     override func viewDidLoad() {
         super.viewDidLoad()
         customView.setup(delegate: self, dataSource: self)
+        viewModel.initializer()
         viewModel.fetchCatDetails()
     }
 }
@@ -43,6 +44,9 @@ extension CatsDetailViewController: BindableView {
     func bindProperties() {
         viewModel.catState.bind { [weak self] (catDetail) in
             guard let self = self, let items = catDetail?.items else { return }
+            self.items = []
+            
+            self.customView.reload()
             self.items = items
             self.customView.reload()
         }
@@ -52,12 +56,11 @@ extension CatsDetailViewController: BindableView {
         
         viewModel.state.bind { [weak self] (state) in
             switch state {
-            case .loading:
-                self?.customView.startLoading()
-            case .success:
-               self?.customView.stopLoading()
             case .error(let message):
-                self?.customView.stopLoading()
+                //TODO handle error
+                break
+            default:
+                break
             }
         }
     }
@@ -79,11 +82,16 @@ extension CatsDetailViewController: UITableViewDataSource, UITableViewDelegate {
             return cell
         case .image(let url):
             let cell: CatsImageCell = tableView.dequeueReusableCell(forIndexPath: indexPath)
-            cell.setup(url: url)
+            if let url = url {
+                cell.setup(url: url)
+            } else {
+                cell.setup()
+            }
             return cell
-        default:
-            break
+        case .iconTextValue(let icon, let text, let value):
+            let cell: ImageValueDescriptionCell = tableView.dequeueReusableCell(forIndexPath: indexPath)
+            cell.setup(title: text, subtitle: value, image: icon)
+            return cell
         }
-        return UITableViewCell()
     }
 }

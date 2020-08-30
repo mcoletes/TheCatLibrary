@@ -14,13 +14,14 @@ protocol CatsDetailViewModelProtocol {
     var catState: Bindable<CatsDetail.ViewState?> { get set }
     var state: Bindable<ViewStates> { get set }
     var title: Bindable<String> { get set }
+    func initializer()
     func fetchCatDetails()
 }
 
 class CatsDetailViewModel: CatsDetailViewModelProtocol {
     var catState: Bindable<CatsDetail.ViewState?>
     var title: Bindable<String> = Bindable<String>("")
-    var state: Bindable<ViewStates> = Bindable<ViewStates>(.loading)
+    var state: Bindable<ViewStates> = Bindable<ViewStates>(.none)
     var cat: Cat
     
     init(cat: Cat) {
@@ -28,9 +29,13 @@ class CatsDetailViewModel: CatsDetailViewModelProtocol {
         catState = Bindable<CatsDetail.ViewState?>(nil)
     }
     
-    func fetchCatDetails() {
+    func initializer() {
         title.value = cat.name
-        state.value = .loading
+        catState.value = CatsDetail.ViewState(cat: self.cat)
+    }
+    
+    func fetchCatDetails() {
+
         fetchCatDetails(request: CatsDetail.Request(id: cat.id)) { [weak self] (result) in
             guard let self = self else { return }
             switch result {

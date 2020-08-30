@@ -10,57 +10,56 @@ import UIKit
 import SDWebImage
 class CatsImageCell: UITableViewCell, ReusableView {
     
-    private lazy var mainView: UIView = {
-        let view = UIView()
-        view.translatesAutoresizingMaskIntoConstraints = false
-        //view.backgroundColor = .red
-        return view
-    }()
-    
     private lazy var catImage: UIImageView = {
         let imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
-        //imageView.contentMode = .scaleAspectFill
-        //imageView.backgroundColor = .black
+        imageView.contentMode = .scaleAspectFill
+        imageView.clipsToBounds = true
         return imageView
     }()
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
-       // setup()
+        setupUI()
     }
     
     required init?(coder: NSCoder) {
         super.init(coder: coder)
-        setup()
+        setupUI()
     }
     
     func setup(url: URL) {
-        setup()
-        imageView?.sd_setImage(with: url, placeholderImage: #imageLiteral(resourceName: "cat_icon"))
+        catImage.sd_setImage(with: url, placeholderImage: #imageLiteral(resourceName: "cat_icon"))
     }
     
-    private func setup(){
+    func setup() {
+        catImage.image = #imageLiteral(resourceName: "cat_icon")
+    }
+    
+    private func setupUI(){
         addViewHierarchy()
         addConstraints()
+        selectionStyle = .none
     }
 
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        catImage.removeFromSuperview()
+        setupUI()
+    }
 }
 extension CatsImageCell: ViewCodeProtocol {
     func addViewHierarchy() {
-        addSubview(mainView)
-        mainView.addSubview(catImage)
+        addSubview(catImage)
     }
     
     func addConstraints() {
-        mainView.leadingAnchor.constraint(equalTo: self.leadingAnchor).isActive = true
-        mainView.topAnchor.constraint(equalTo: self.topAnchor).isActive = true
-        mainView.bottomAnchor.constraint(equalTo: self.bottomAnchor).isActive = true
-        mainView.trailingAnchor.constraint(equalTo: self.trailingAnchor).isActive = true
+        catImage.widthAnchor.constraint(equalToConstant: UIScreen.main.bounds.width - 32).isActive = true
+        catImage.leadingAnchor.constraint(equalTo: self.leadingAnchor).isActive = true
+        catImage.trailingAnchor.constraint(equalTo: self.trailingAnchor).isActive = true
+        catImage.topAnchor.constraint(equalTo: self.topAnchor).isActive = true
+        catImage.bottomAnchor.constraint(equalTo: self.bottomAnchor).isActive = true
+        self.heightAnchor.constraint(equalToConstant: 200).isActive = true
         
-        catImage.leadingAnchor.constraint(equalTo: mainView.leadingAnchor).isActive = true
-        catImage.trailingAnchor.constraint(equalTo: mainView.trailingAnchor).isActive = true
-        catImage.topAnchor.constraint(equalTo: mainView.topAnchor).isActive = true
-        catImage.bottomAnchor.constraint(equalTo: mainView.bottomAnchor).isActive = true
     }
 }
