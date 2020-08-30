@@ -80,6 +80,7 @@ class ImageValueDescriptionCell: UITableViewCell, ReusableView {
     }
     
     private func setup() {
+        selectionStyle = .none
         addViewHierarchy()
         addConstraints()
     }

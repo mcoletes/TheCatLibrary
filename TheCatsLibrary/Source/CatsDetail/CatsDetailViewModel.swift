@@ -12,7 +12,7 @@ import Combine
 protocol CatsDetailViewModelProtocol {
     var cat: Cat { get set }
     var catState: Bindable<CatsDetail.ViewState?> { get set }
-    var state: Bindable<ViewStates> { get set }
+    var state: Bindable<Status> { get set }
     var title: Bindable<String> { get set }
     func initializer()
     func fetchCatDetails()
@@ -21,7 +21,7 @@ protocol CatsDetailViewModelProtocol {
 class CatsDetailViewModel: CatsDetailViewModelProtocol {
     var catState: Bindable<CatsDetail.ViewState?>
     var title: Bindable<String> = Bindable<String>("")
-    var state: Bindable<ViewStates> = Bindable<ViewStates>(.none)
+    var state: Bindable<Status> = Bindable<Status>(.none)
     var cat: Cat
     
     init(cat: Cat) {
@@ -41,8 +41,8 @@ class CatsDetailViewModel: CatsDetailViewModelProtocol {
             switch result {
             case .success(let catDetail):
                 self.state.value = .success
-                guard let url = catDetail.first?.url else { return }
-                self.catState.value = CatsDetail.ViewState(cat: self.cat, url: url)
+                guard let href = catDetail.first?.url else { return }
+                self.catState.value = CatsDetail.ViewState(cat: self.cat, href: href)
             case .failure(let error):
                 self.state.value = .error(error: "errooooo")
                 print(error)

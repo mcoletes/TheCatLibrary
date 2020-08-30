@@ -8,6 +8,11 @@
 
 import UIKit
 import SDWebImage
+
+protocol UpdateImageProtocol {
+    func imageDidUpdate(url: String)
+}
+
 class CatsImageCell: UITableViewCell, ReusableView {
     
     private lazy var catImage: UIImageView = {
@@ -15,6 +20,7 @@ class CatsImageCell: UITableViewCell, ReusableView {
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.contentMode = .scaleAspectFill
         imageView.clipsToBounds = true
+        imageView.layer.cornerRadius = 10
         return imageView
     }()
     
@@ -36,16 +42,10 @@ class CatsImageCell: UITableViewCell, ReusableView {
         catImage.image = #imageLiteral(resourceName: "cat_icon")
     }
     
-    private func setupUI(){
+    private func setupUI() {
         addViewHierarchy()
         addConstraints()
         selectionStyle = .none
-    }
-
-    override func prepareForReuse() {
-        super.prepareForReuse()
-        catImage.removeFromSuperview()
-        setupUI()
     }
 }
 extension CatsImageCell: ViewCodeProtocol {
@@ -54,12 +54,10 @@ extension CatsImageCell: ViewCodeProtocol {
     }
     
     func addConstraints() {
-        catImage.widthAnchor.constraint(equalToConstant: UIScreen.main.bounds.width - 32).isActive = true
         catImage.leadingAnchor.constraint(equalTo: self.leadingAnchor).isActive = true
         catImage.trailingAnchor.constraint(equalTo: self.trailingAnchor).isActive = true
         catImage.topAnchor.constraint(equalTo: self.topAnchor).isActive = true
         catImage.bottomAnchor.constraint(equalTo: self.bottomAnchor).isActive = true
-        self.heightAnchor.constraint(equalToConstant: 200).isActive = true
-        
+        self.heightAnchor.constraint(equalToConstant: 300).isActive = true
     }
 }

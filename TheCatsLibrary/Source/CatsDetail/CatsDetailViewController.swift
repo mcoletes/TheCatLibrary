@@ -11,11 +11,17 @@ import UIKit
 class CatsDetailViewController: UIViewController, CustomizableView {
     
     // MARK: - Typealias
-    
     typealias CustomView = CatsDetailView
-    private var viewModel: CatsDetailViewModelProtocol
-    var items: [CatsDetail.CatsDetailType] = []
     
+    // MARK: - Internal Properties
+    
+    var items: [CatsDetail.CatsDetailType] = []
+   
+     // MARK: - Private Properties
+    private var indexPath: IndexPath?
+    private var viewModel: CatsDetailViewModelProtocol
+
+    // MARK: - Initialier
     init(viewModel: CatsDetailViewModelProtocol) {
         self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
@@ -25,6 +31,7 @@ class CatsDetailViewController: UIViewController, CustomizableView {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+    
     // MARK: - Life cycle
     
     override func loadView() {
@@ -41,20 +48,20 @@ class CatsDetailViewController: UIViewController, CustomizableView {
 }
 
 extension CatsDetailViewController: BindableView {
+    
+    // MARK: - BindableView
+    
     func bindProperties() {
         viewModel.catState.bind { [weak self] (catDetail) in
             guard let self = self, let items = catDetail?.items else { return }
-            self.items = []
-            
-            self.customView.reload()
             self.items = items
             self.customView.reload()
         }
-        viewModel.title.bind { [weak self] (title) in
+        viewModel.title.bind { [weak self] title in
             self?.title = title
         }
         
-        viewModel.state.bind { [weak self] (state) in
+        viewModel.state.bind { [weak self] state in
             switch state {
             case .error(let message):
                 //TODO handle error
@@ -81,6 +88,7 @@ extension CatsDetailViewController: UITableViewDataSource, UITableViewDelegate {
             cell.setup(title: name, subtitle: description)
             return cell
         case .image(let url):
+            self.indexPath = indexPath
             let cell: CatsImageCell = tableView.dequeueReusableCell(forIndexPath: indexPath)
             if let url = url {
                 cell.setup(url: url)

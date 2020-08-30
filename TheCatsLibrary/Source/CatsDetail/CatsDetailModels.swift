@@ -32,22 +32,18 @@ enum CatsDetail {
     struct ViewState {
         var items: [CatsDetailType]
         
-        init(cat: Cat, url: String) {
-            self.items = [CatsDetailType]()
-            if let url = URL(string: url) {
+        init(cat: Cat, href: String? = nil) {
+            self.items = []
+            if let href = href, let url = URL(string: href) {
                 items.append(.image(url: url))
+            } else {
+                items.append(.image(url: nil))
             }
             items.append(contentsOf: setupCat(cat: cat))
         }
-        
-        init(cat: Cat){
-            self.items = [CatsDetailType]()
-            self.items = setupCat(cat: cat)
-        }
-        
+
         private func setupCat(cat: Cat) ->  [CatsDetailType] {
-            var items = [CatsDetailType]()
-            items.append(.image(url: nil))
+            var items: [CatsDetailType] = []
             items.append(.detail(name: "description".uppercased(), description: cat.description))
             if let dogFriendly = cat.dogFriendly {
                 items.append(.iconTextValue(icon: "ic_dog", text: "Dog friendly", value: "\(dogFriendly)"))
@@ -65,7 +61,6 @@ enum CatsDetail {
                 items.append(.iconTextValue(icon: "ic_heart", text: "Affection level", value: "\(affectionLevel)"))
             }
             
-            //TODO ADD TO RESOURCES STRINGS AND CREATE ENUM FOR ICONS
             return items
         }
     }
