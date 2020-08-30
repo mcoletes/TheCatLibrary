@@ -2,7 +2,7 @@
 The cats library is a master detail app that shows the cats available at https://thecatapi.com/ and the details of it.
 
 ### Demo
-/Users/maurocoletes/Documents/TheCatLibrary/App-presentaion.gif
+![Alt Text](/App-presentaion.gif)
 
 ## Prerequisites
 * [Xcode](https://developer.apple.com/xcode/) 11.6
