@@ -56,6 +56,7 @@ class HorizontalScrollCell: UITableViewCell, ReusableView {
     }
     
     func setup() {
+        selectionStyle = .none
         addViewHierarchy()
         addConstraints()
     }
