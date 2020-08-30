@@ -43,6 +43,8 @@ enum CatsDetail {
         }
 
         private func setupCat(cat: Cat) ->  [CatsDetailType] {
+            //TODO add to Text labels and text
+            //TODO create icons enum
             var items: [CatsDetailType] = []
             items.append(.detail(name: "description".uppercased(), description: cat.description))
             if let dogFriendly = cat.dogFriendly {

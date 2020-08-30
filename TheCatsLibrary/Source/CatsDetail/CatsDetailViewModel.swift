@@ -10,7 +10,6 @@ import Foundation
 import Combine
 
 protocol CatsDetailViewModelProtocol {
-    var cat: Cat { get set }
     var catState: Bindable<CatsDetail.ViewState?> { get set }
     var state: Bindable<Status> { get set }
     var title: Bindable<String> { get set }
@@ -19,10 +18,12 @@ protocol CatsDetailViewModelProtocol {
 }
 
 class CatsDetailViewModel: CatsDetailViewModelProtocol {
+    
     var catState: Bindable<CatsDetail.ViewState?>
     var title: Bindable<String> = Bindable<String>("")
     var state: Bindable<Status> = Bindable<Status>(.none)
-    var cat: Cat
+    
+    private var cat: Cat
     
     init(cat: Cat) {
         self.cat = cat

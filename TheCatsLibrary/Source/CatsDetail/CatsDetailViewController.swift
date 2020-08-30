@@ -8,7 +8,7 @@
 
 import UIKit
 
-class CatsDetailViewController: UIViewController, CustomizableView {
+class CatsDetailViewController: UIViewController, CustomizableView, ViewControllerErrorProtocol {
     
     // MARK: - Typealias
     typealias CustomView = CatsDetailView

@@ -19,7 +19,7 @@ protocol CatsListDisplayLogic: class {
     func showCatDetail()
 }
 
-class CatsListViewController: UIViewController, CatsListDisplayLogic {
+class CatsListViewController: UIViewController, CatsListDisplayLogic, ViewControllerErrorProtocol {
     
     // MARK: IBOutlet
     
