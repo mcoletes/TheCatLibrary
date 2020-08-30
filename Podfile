@@ -2,10 +2,8 @@ platform :ios, '13.0'
 use_frameworks!
 
 
-def unitTestingPods
-    pod 'Quick'
-    pod 'Nimble'
-    pod 'Nimble-Snapshots'
+def testingPods
+  pod 'iOSSnapshotTestCase'
 end
 
 def visualPods
@@ -22,7 +20,12 @@ target 'TheCatsLibrary' do
   target 'TheCatsLibraryTests' do
     inherit! :search_paths
     # Pods for testing
-	unitTestingPods
+  end
+  
+  target 'TheCatsLibrarySnapshotTests' do
+    inherit! :search_paths
+    # Pods for testing
+  testingPods
   end
 
   target 'TheCatsLibraryUITests' do

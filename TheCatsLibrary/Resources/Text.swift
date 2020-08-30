@@ -13,11 +13,14 @@ internal enum Text: String {
     case warningTitle
     case warningButtonDismissTitle
     case warningButtonTryAgain
+    //=======END ERROR/WARNING VIEW==========//
     
     //=======CATS LIST==========//
     case catsListTitle
     case catsListLastCatTitle
     case catsListLastCatDescription
+    case catsListErrorMessage
+    //=======END CATS LIST==========//
     
     //=======CAT DETAIL==========//
     case catsDetailTitle
@@ -28,6 +31,8 @@ internal enum Text: String {
     case vocalisation
     case affectionLevel
     case temperament
+    case catsDetailErrorMessage
+    //=======END CAT DETAIL==========//
     
     public var value: String {
         return String(describing: self.rawValue).localized()

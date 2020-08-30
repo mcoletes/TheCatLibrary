@@ -20,7 +20,8 @@ public class Bindable<T> {
     
     public var value: T {
         didSet {
-            execBinds()
+                self.execBinds()
+            
         }
     }
     
@@ -39,10 +40,9 @@ public class Bindable<T> {
     // MARK: - Private Methods
     
     private func execBinds() {
-        DispatchQueue.main.async {
-            self.binds.forEach { [unowned self] bind in
-                bind(self.value)
-            }
+        self.binds.forEach { [weak self] bind in
+            guard let self = self else { return }
+            bind(self.value)
         }
     }
 }
