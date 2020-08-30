@@ -16,15 +16,13 @@ class CatsDetailViewControllerTests: BaseSnapshot {
     var worker: CatsDetailWorkerMock!
     
     var cat: Cat = {
-       let catsList: [Cat] = JsonLoader().loadFromJsonFile(mock: .catsList)!
-       return catsList.first!
+        let catsList: [Cat] = JsonLoader().loadFromJsonFile(mock: .catsList)!
+        return catsList.first!
     }()
     
     override func setUp() {
-        let worker = CatsDetailWorkerMock()
-        let catsList: [Cat] = JsonLoader().loadFromJsonFile(mock: .catsList)!
-        let cat = catsList.first!
-        let viewModel = CatsDetailViewModel(cat: cat, worker: worker)
+        worker = CatsDetailWorkerMock()
+        viewModel = CatsDetailViewModel(cat: cat, worker: worker)
         sut = CatsDetailViewController(viewModel: viewModel)
         super.baseSetup(vc: sut)
     }
@@ -36,6 +34,11 @@ class CatsDetailViewControllerTests: BaseSnapshot {
     }
     
     func testLoadView() {
+        FBSnapshotVerifyViewController(sut)
+    }
+    
+    func testLoadViewAfterLoadImage() {
+        viewModel.fetchCatDetails()
         FBSnapshotVerifyViewController(sut)
     }
 }

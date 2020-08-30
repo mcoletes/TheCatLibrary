@@ -20,9 +20,8 @@ public class Bindable<T> {
     
     public var value: T {
         didSet {
-            DispatchQueue.main.async {
                 self.execBinds()
-            }
+            
         }
     }
     

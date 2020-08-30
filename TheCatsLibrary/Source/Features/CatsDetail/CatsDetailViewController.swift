@@ -55,18 +55,22 @@ class CatsDetailViewController: UIViewController, CustomizableView, ViewControll
         viewModel.catState.bind { [weak self] (catDetail) in
             guard let self = self, let items = catDetail?.items else { return }
             self.items = items
-            self.customView.reload()
-            
+            DispatchQueue.main.async {
+                self.customView.reload()
+            }
         }
         viewModel.title.bind { [weak self] title in
-            self?.title = title
-            
+             DispatchQueue.main.async {
+                self?.title = title
+            }
         }
         
         viewModel.state.bind { [weak self] state in
             switch state {
             case .error(let message):
-                self?.displayError(message: message, actionButtonTitle: Text.warningButtonTryAgain.value, tryAgainAction: self?.viewModel.fetchCatDetails)
+                 DispatchQueue.main.async {
+                    self?.displayError(message: message, actionButtonTitle: Text.warningButtonTryAgain.value, tryAgainAction: self?.viewModel.fetchCatDetails)
+                }
             default:
                 break
             }
