@@ -49,8 +49,6 @@ enum CatsDetail {
         }
         
         private func setupCat(cat: Cat) ->  [CatsDetailType] {
-            //TODO add to Text labels and text
-            //TODO create icons enum
             var items: [CatsDetailType] = []
             var behaviour: [CatBehavior] = []
             items.append(.detail(name: Text.description.value, description: cat.description))
