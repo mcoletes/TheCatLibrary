@@ -11,17 +11,20 @@ import UIKit
 class CatsDetailViewController: UIViewController, CustomizableView, ViewControllerErrorProtocol {
     
     // MARK: - Typealias
+    
     typealias CustomView = CatsDetailView
     
     // MARK: - Internal Properties
     
     var items: [CatsDetail.CatsDetailType] = []
-   
-     // MARK: - Private Properties
+    
+    // MARK: - Private Properties
+    
     private var indexPath: IndexPath?
     private var viewModel: CatsDetailViewModelProtocol
-
+    
     // MARK: - Init
+    
     init(viewModel: CatsDetailViewModelProtocol) {
         self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
@@ -64,8 +67,7 @@ extension CatsDetailViewController: BindableView {
         viewModel.state.bind { [weak self] state in
             switch state {
             case .error(let message):
-                //TODO handle error
-                break
+                self?.displayError(message: message, actionButtonTitle: Text.warningButtonTryAgain.value, tryAgainAction: self?.viewModel.fetchCatDetails)
             default:
                 break
             }
@@ -103,9 +105,9 @@ extension CatsDetailViewController: UITableViewDataSource, UITableViewDelegate {
             let cell: HorizontalScrollCell = tableView.dequeueReusableCell(forIndexPath: indexPath)
             cell.setup(behaviour: behaviour)
             return cell
-//            let cell: ImageValueDescriptionCell = tableView.dequeueReusableCell(forIndexPath: indexPath)
-//            cell.setup(title: text, subtitle: value, image: icon)
-//            return cell
+            //            let cell: ImageValueDescriptionCell = tableView.dequeueReusableCell(forIndexPath: indexPath)
+            //            cell.setup(title: text, subtitle: value, image: icon)
+            //            return cell
         }
     }
 }

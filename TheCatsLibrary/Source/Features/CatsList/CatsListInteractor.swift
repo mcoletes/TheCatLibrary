@@ -58,9 +58,8 @@ class CatsListInteractor: CatsListBusinessLogic, CatsListDataStore {
                     self?.presenter?.presentCats(cats: cats, isLastPage: false)
                 }
                 
-            case .failure(let error):
-                print(error)
-                //TODO handle error
+            case .failure(_):
+                self?.presenter?.presentError(action: self?.fetchListOfCats)
             }
         }
     }

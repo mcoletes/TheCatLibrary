@@ -1,5 +1,5 @@
 //
-//  ImageValueDescriptionCell.swift
+//  TitleSubstitleCell.swift
 //  TheCatsLibrary
 //
 //  Created by Mauro Coletes on 29/08/20.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ImageValueDescriptionCell: UICollectionViewCell, ReusableView {
+class TitleSubstitleCell: UITableViewCell, ReusableView {
     
     // MARK: - Private Properties
     
@@ -23,21 +23,11 @@ class ImageValueDescriptionCell: UICollectionViewCell, ReusableView {
     
     private lazy var stackView: UIStackView = {
         let stackView = UIStackView()
+        stackView.contentMode = .scaleToFill
         stackView.translatesAutoresizingMaskIntoConstraints = false
         stackView.axis = .vertical
         stackView.spacing = Spacing.defaultStackViewSpacing.rawValue
         stackView.addArrangedSubview(titleLabel)
-        stackView.addArrangedSubview(horizontalStackView)
-        return stackView
-    }()
-    
-    private lazy var horizontalStackView: UIStackView = {
-        let stackView = UIStackView()
-        stackView.translatesAutoresizingMaskIntoConstraints = false
-        stackView.axis = .horizontal
-        stackView.contentMode = .left
-        stackView.spacing = Spacing.defaultStackViewSpacing.rawValue
-        stackView.addArrangedSubview(icon)
         stackView.addArrangedSubview(subtitleLabel)
         return stackView
     }()
@@ -54,22 +44,16 @@ class ImageValueDescriptionCell: UICollectionViewCell, ReusableView {
     private lazy var subtitleLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.font = Font.Large.title.value
+        label.font = Font.Small.subtitle.value
         label.numberOfLines = 0
         label.textColor = .black
         return label
     }()
     
-    private lazy var icon: UIImageView = {
-        let icon = UIImageView()
-        icon.translatesAutoresizingMaskIntoConstraints = false
-        return icon
-    }()
-    
     // MARK: - Init
     
-    override init(frame: CGRect) {
-        super.init(frame: frame)
+    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
+        super.init(style: style, reuseIdentifier: reuseIdentifier)
         setup()
     }
     
@@ -78,23 +62,25 @@ class ImageValueDescriptionCell: UICollectionViewCell, ReusableView {
         setup()
     }
     
+    
     // MARK: - Internal Methods
     
-    func setup(title: String, subtitle: String, image: String) {
+    func setup(title: String, subtitle: String) {
         titleLabel.text = title
         subtitleLabel.text = subtitle
-        icon.image = UIImage(named: image)
     }
+    
     
     // MARK: - Private Methods
     
-    private func setup() {
+    private func setup(){
+        selectionStyle = .none
         addViewHierarchy()
         addConstraints()
     }
 }
 
-extension ImageValueDescriptionCell: ViewCodeProtocol {
+extension TitleSubstitleCell: ViewCodeProtocol {
     
     // MARK: - ViewCodeProtocol
     
@@ -104,18 +90,15 @@ extension ImageValueDescriptionCell: ViewCodeProtocol {
     }
     
     func addConstraints() {
+        
         mainView.leadingAnchor.constraint(equalTo: self.leadingAnchor).isActive = true
-        mainView.topAnchor.constraint(equalTo: self.topAnchor).isActive = true
-        mainView.bottomAnchor.constraint(equalTo: self.bottomAnchor).isActive = true
+        mainView.topAnchor.constraint(equalTo: self.topAnchor, constant: Spacing.defaultMarginSpacing.rawValue).isActive = true
+        mainView.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -Spacing.defaultMarginSpacing.rawValue).isActive = true
         mainView.trailingAnchor.constraint(equalTo: self.trailingAnchor).isActive = true
         
         stackView.leadingAnchor.constraint(equalTo: mainView.leadingAnchor, constant: Spacing.defaultMarginSpacing.rawValue).isActive = true
         stackView.trailingAnchor.constraint(equalTo: mainView.trailingAnchor, constant: -Spacing.defaultMarginSpacing.rawValue).isActive = true
         stackView.topAnchor.constraint(equalTo: mainView.topAnchor, constant: Spacing.defaultMarginSpacing.rawValue).isActive = true
         stackView.bottomAnchor.constraint(equalTo: mainView.bottomAnchor, constant: -Spacing.defaultMarginSpacing.rawValue).isActive = true
-        
-        icon.heightAnchor.constraint(equalToConstant: 25).isActive = true
-        icon.widthAnchor.constraint(equalToConstant: 25).isActive = true
     }
 }
-

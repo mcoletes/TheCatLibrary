@@ -12,7 +12,7 @@
 
 import UIKit
 
-protocol CatsListDisplayLogic: class {
+protocol CatsListDisplayLogic: class, ViewControllerErrorProtocol {
     func startLoading()
     func stopLoading()
     func showCats(cats: [CatsList.CatVM])
@@ -152,6 +152,7 @@ extension CatsListViewController: UICollectionViewDataSourcePrefetching {
         }
     }
 }
+
 extension CatsListViewController: UICollectionViewDelegateFlowLayout {
     
     // MARK: - UICollectionViewDelegateFlowLayout

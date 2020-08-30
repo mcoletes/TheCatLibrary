@@ -17,6 +17,7 @@ protocol CatsListPresentationLogic {
     func stopLoading()
     func presentCats(cats: [Cat], isLastPage: Bool)
     func presentCatDetail()
+    func presentError(action: EmptyClosure?)
 }
 
 class CatsListPresenter: CatsListPresentationLogic {
@@ -47,5 +48,10 @@ class CatsListPresenter: CatsListPresentationLogic {
     
     func presentCatDetail() {
         viewController?.showCatDetail()
+    }
+    
+    func presentError(action: EmptyClosure?) {
+        let message = Text.catsListErrorMessage.value
+        viewController?.displayError(message: message, actionButtonTitle: Text.warningButtonTryAgain.value, tryAgainAction: action)
     }
 }

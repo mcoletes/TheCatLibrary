@@ -25,7 +25,7 @@ enum CatsDetail {
     }
     
     struct CatBehavior {
-        let icon: String
+        let icon: Icons
         let name: String
         let value: String
     }
@@ -49,28 +49,29 @@ enum CatsDetail {
         }
         
         private func setupCat(cat: Cat) ->  [CatsDetailType] {
-            //TODO add to Text labels and text
-            //TODO create icons enum
             var items: [CatsDetailType] = []
             var behaviour: [CatBehavior] = []
-            items.append(.detail(name: "description".uppercased(), description: cat.description))
+            items.append(.detail(name: Text.description.value, description: cat.description))
             if let dogFriendly = cat.dogFriendly {
-                behaviour.append(CatBehavior(icon: "ic_dog", name:"Dog friendly", value: "\(dogFriendly)"))
+                behaviour.append(CatBehavior(icon: .dog, name: Text.dogFriendly.value, value: "\(dogFriendly)"))
             }
             if let catFriendly = cat.catFriendly {
-                behaviour.append(CatBehavior(icon: "ic_cat", name:"Cat friendly", value: "\(catFriendly)"))
+                behaviour.append(CatBehavior(icon: .cat, name: Text.catFriendly.value, value: "\(catFriendly)"))
             }
             if let childFriendly = cat.childFriendly {
-                behaviour.append(CatBehavior(icon: "ic_baby", name:"Child friendly", value: "\(childFriendly)"))
-                
+                behaviour.append(CatBehavior(icon: .child, name: Text.childFriendly.value, value: "\(childFriendly)"))
             }
             if let vocalisation = cat.vocalisation {
-                behaviour.append(CatBehavior(icon: "ic_horn", name:"Vocalisation", value: "\(vocalisation)"))
+                behaviour.append(CatBehavior(icon: .horn, name: Text.vocalisation.value, value: "\(vocalisation)"))
             }
             if let affectionLevel = cat.affectionLevel {
-                behaviour.append(CatBehavior(icon: "ic_heart", name:"Affection level", value: "\(affectionLevel)"))
+                behaviour.append(CatBehavior(icon: .heart, name:Text.affectionLevel.value, value: "\(affectionLevel)"))
             }
             items.append(.iconTextValue(behaviour: behaviour))
+            
+            if let temperament = cat.temperament {
+                items.append(.detail(name: Text.temperament.value, description: temperament.replacingOccurrences(of: ", ", with: "\n")))
+            }
             
             return items
         }
