@@ -186,6 +186,15 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		9455167324FB775500327DA6 /* Features */ = {
+			isa = PBXGroup;
+			children = (
+				946BFEE924FAB2CD00DC974C /* CatsDetail */,
+				94F5BF9B24F4A5080005C3E6 /* CatsList */,
+			);
+			path = Features;
+			sourceTree = "<group>";
+		};
 		9463F4E024F4A87E00186BDB /* Provider */ = {
 			isa = PBXGroup;
 			children = (
@@ -194,12 +203,12 @@
 			path = Provider;
 			sourceTree = "<group>";
 		};
-		9463F50524F4B25B00186BDB /* Models */ = {
+		9463F50524F4B25B00186BDB /* Shared Models */ = {
 			isa = PBXGroup;
 			children = (
 				9463F50624F4B26900186BDB /* Cat.swift */,
 			);
-			path = Models;
+			path = "Shared Models";
 			sourceTree = "<group>";
 		};
 		946BFEDF24FAA6E900DC974C /* Protocols */ = {
@@ -341,7 +350,6 @@
 				946BFEDF24FAA6E900DC974C /* Protocols */,
 				949F4C4724F9FC3300B52DCD /* Extensions */,
 				94712DD024F5F300003002C6 /* Configuration */,
-				9463F50524F4B25B00186BDB /* Models */,
 				94F5BF8C24F4A0CF0005C3E6 /* Network */,
 			);
 			path = Common;
@@ -371,8 +379,8 @@
 		94F5BF8B24F49EBA0005C3E6 /* Source */ = {
 			isa = PBXGroup;
 			children = (
-				946BFEE924FAB2CD00DC974C /* CatsDetail */,
-				94F5BF9B24F4A5080005C3E6 /* CatsList */,
+				9455167324FB775500327DA6 /* Features */,
+				9463F50524F4B25B00186BDB /* Shared Models */,
 			);
 			path = Source;
 			sourceTree = "<group>";
