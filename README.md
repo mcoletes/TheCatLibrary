@@ -9,10 +9,11 @@ The cats library is a master detail app that shows the cats available at https:/
 * [Cocoapods](https://cocoapods.org) 1.9.1 (only if you want to update the Pods, they are already within the workspace).
 
 ## Architecture
-### List of Cats
-* The list feature was developed using [clean swift architecture](https://clean-swift.com/).
-### Cat Detail
-*  The detail feature was developed using Reactive MVVM with a simple binding class do perform reactiveness between view model and view controller.
+* I used two architectures just for the purpose of highlighting the differences between them.
+    ### List of Cats
+    * The list feature was developed using [clean swift architecture](https://clean-swift.com/).
+    ### Cat Detail
+    *  The detail feature was developed using Reactive MVVM with a simple binding class do perform reactiveness between view model and view controller.
 
 ## Tests
 * Snapshot Tests - [iOSSnapshotTestCase (previously FBSnapshotTestCase)](https://github.com/uber/ios-snapshot-test-case)
