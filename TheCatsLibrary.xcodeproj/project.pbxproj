@@ -24,6 +24,14 @@
 		943B09DD24FC16B200769A69 /* MocksEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 943B09DB24FC166400769A69 /* MocksEnum.swift */; };
 		943B09DF24FC182600769A69 /* CatsDetailViewControllerMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 943B09DE24FC182600769A69 /* CatsDetailViewControllerMock.swift */; };
 		943B09E224FC1CB600769A69 /* XCTestCase+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 943B09E124FC1CB600769A69 /* XCTestCase+Extensions.swift */; };
+		943B09E524FC20AC00769A69 /* CatsDetailViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 943B09E424FC20AC00769A69 /* CatsDetailViewControllerTests.swift */; };
+		943B09E624FC238800769A69 /* CatsDetailWorkerMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 943B09D724FC137B00769A69 /* CatsDetailWorkerMock.swift */; };
+		943B09E924FC29CF00769A69 /* CatsImageCellSnapshotTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 943B09E824FC29CF00769A69 /* CatsImageCellSnapshotTests.swift */; };
+		943B09EB24FC29DA00769A69 /* TitleSubstitleCellSnapshotTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 943B09EA24FC29DA00769A69 /* TitleSubstitleCellSnapshotTests.swift */; };
+		943B09EF24FC29F500769A69 /* HorizontalScrollCellSnapshotTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 943B09EE24FC29F500769A69 /* HorizontalScrollCellSnapshotTests.swift */; };
+		943B09F424FC2B3E00769A69 /* cat.png in Resources */ = {isa = PBXBuildFile; fileRef = 943B09F324FC2B3E00769A69 /* cat.png */; };
+		943B09F524FC2B4400769A69 /* grumpy-cat.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 943B09F124FC2A4D00769A69 /* grumpy-cat.jpg */; };
+		943B09F724FC35CE00769A69 /* TableViewCellSnapshotContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 943B09F624FC35CE00769A69 /* TableViewCellSnapshotContainer.swift */; };
 		9455166D24FB2EE600327DA6 /* ImageValueDescriptionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9455166C24FB2EE600327DA6 /* ImageValueDescriptionCell.swift */; };
 		9455166F24FB53A100327DA6 /* HorizontalScrollCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9455166E24FB53A100327DA6 /* HorizontalScrollCell.swift */; };
 		9455167124FB69C200327DA6 /* Icons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9455167024FB69C200327DA6 /* Icons.swift */; };
@@ -127,6 +135,13 @@
 		943B09DB24FC166400769A69 /* MocksEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MocksEnum.swift; sourceTree = "<group>"; };
 		943B09DE24FC182600769A69 /* CatsDetailViewControllerMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatsDetailViewControllerMock.swift; sourceTree = "<group>"; };
 		943B09E124FC1CB600769A69 /* XCTestCase+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "XCTestCase+Extensions.swift"; sourceTree = "<group>"; };
+		943B09E424FC20AC00769A69 /* CatsDetailViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatsDetailViewControllerTests.swift; sourceTree = "<group>"; };
+		943B09E824FC29CF00769A69 /* CatsImageCellSnapshotTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatsImageCellSnapshotTests.swift; sourceTree = "<group>"; };
+		943B09EA24FC29DA00769A69 /* TitleSubstitleCellSnapshotTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleSubstitleCellSnapshotTests.swift; sourceTree = "<group>"; };
+		943B09EE24FC29F500769A69 /* HorizontalScrollCellSnapshotTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HorizontalScrollCellSnapshotTests.swift; sourceTree = "<group>"; };
+		943B09F124FC2A4D00769A69 /* grumpy-cat.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "grumpy-cat.jpg"; sourceTree = "<group>"; };
+		943B09F324FC2B3E00769A69 /* cat.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cat.png; sourceTree = "<group>"; };
+		943B09F624FC35CE00769A69 /* TableViewCellSnapshotContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCellSnapshotContainer.swift; sourceTree = "<group>"; };
 		9455166C24FB2EE600327DA6 /* ImageValueDescriptionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageValueDescriptionCell.swift; sourceTree = "<group>"; };
 		9455166E24FB53A100327DA6 /* HorizontalScrollCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HorizontalScrollCell.swift; sourceTree = "<group>"; };
 		9455167024FB69C200327DA6 /* Icons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Icons.swift; sourceTree = "<group>"; };
@@ -320,6 +335,7 @@
 		943B09C524FC028100769A69 /* Features */ = {
 			isa = PBXGroup;
 			children = (
+				943B09E324FC209400769A69 /* CatsDetail */,
 				943B09C624FC028600769A69 /* CatsList */,
 			);
 			path = Features;
@@ -338,6 +354,7 @@
 			isa = PBXGroup;
 			children = (
 				943B09CA24FC06F100769A69 /* BaseSnapshot.swift */,
+				943B09F624FC35CE00769A69 /* TableViewCellSnapshotContainer.swift */,
 			);
 			path = Util;
 			sourceTree = "<group>";
@@ -366,6 +383,25 @@
 				943B09E124FC1CB600769A69 /* XCTestCase+Extensions.swift */,
 			);
 			path = Exntensions;
+			sourceTree = "<group>";
+		};
+		943B09E324FC209400769A69 /* CatsDetail */ = {
+			isa = PBXGroup;
+			children = (
+				943B09E724FC29C100769A69 /* Views */,
+				943B09E424FC20AC00769A69 /* CatsDetailViewControllerTests.swift */,
+			);
+			path = CatsDetail;
+			sourceTree = "<group>";
+		};
+		943B09E724FC29C100769A69 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				943B09E824FC29CF00769A69 /* CatsImageCellSnapshotTests.swift */,
+				943B09EA24FC29DA00769A69 /* TitleSubstitleCellSnapshotTests.swift */,
+				943B09EE24FC29F500769A69 /* HorizontalScrollCellSnapshotTests.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 		9455167324FB775500327DA6 /* Features */ = {
@@ -496,6 +532,8 @@
 		94EE222A24FBFAF00005BC6F /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				943B09F324FC2B3E00769A69 /* cat.png */,
+				943B09F124FC2A4D00769A69 /* grumpy-cat.jpg */,
 				94EE222B24FBFBE60005BC6F /* CatsList.json */,
 				943B09D924FC13DA00769A69 /* CatDetail.json */,
 				943B09DB24FC166400769A69 /* MocksEnum.swift */,
@@ -760,6 +798,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				943B09F424FC2B3E00769A69 /* cat.png in Resources */,
+				943B09F524FC2B4400769A69 /* grumpy-cat.jpg in Resources */,
 				94EE222D24FBFBE60005BC6F /* CatsList.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -940,14 +980,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				943B09E924FC29CF00769A69 /* CatsImageCellSnapshotTests.swift in Sources */,
 				943B09CB24FC06F100769A69 /* BaseSnapshot.swift in Sources */,
 				94EE222924FBFADA0005BC6F /* JsonLoader.swift in Sources */,
 				943B09CC24FC07D200769A69 /* CatsListWorkerMock.swift in Sources */,
 				943B09C824FC029800769A69 /* CatsListViewControllerSnpashotTests.swift in Sources */,
+				943B09F724FC35CE00769A69 /* TableViewCellSnapshotContainer.swift in Sources */,
 				943B09CF24FC0BB100769A69 /* CatsListCellSnapshotTests.swift in Sources */,
 				943B09DD24FC16B200769A69 /* MocksEnum.swift in Sources */,
+				943B09EF24FC29F500769A69 /* HorizontalScrollCellSnapshotTests.swift in Sources */,
 				943B09D124FC0FEA00769A69 /* LoadingViewSnapshotTests.swift in Sources */,
+				943B09EB24FC29DA00769A69 /* TitleSubstitleCellSnapshotTests.swift in Sources */,
 				94EE223624FBFE8E0005BC6F /* CatsListViewControllerSpy.swift in Sources */,
+				943B09E524FC20AC00769A69 /* CatsDetailViewControllerTests.swift in Sources */,
+				943B09E624FC238800769A69 /* CatsDetailWorkerMock.swift in Sources */,
 				94EE223724FBFF8A0005BC6F /* ServiceStatus.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -49,24 +49,18 @@ enum CatsDetail {
         }
         
         private func setupCat(cat: Cat) ->  [CatsDetailType] {
+            
             var items: [CatsDetailType] = []
             var behaviour: [CatBehavior] = []
+            
             items.append(.detail(name: Text.description.value, description: cat.description))
-            if let dogFriendly = cat.dogFriendly {
-                behaviour.append(CatBehavior(icon: .dog, name: Text.dogFriendly.value, value: "\(dogFriendly)"))
-            }
-            if let catFriendly = cat.catFriendly {
-                behaviour.append(CatBehavior(icon: .cat, name: Text.catFriendly.value, value: "\(catFriendly)"))
-            }
-            if let childFriendly = cat.childFriendly {
-                behaviour.append(CatBehavior(icon: .child, name: Text.childFriendly.value, value: "\(childFriendly)"))
-            }
-            if let vocalisation = cat.vocalisation {
-                behaviour.append(CatBehavior(icon: .horn, name: Text.vocalisation.value, value: "\(vocalisation)"))
-            }
-            if let affectionLevel = cat.affectionLevel {
-                behaviour.append(CatBehavior(icon: .heart, name:Text.affectionLevel.value, value: "\(affectionLevel)"))
-            }
+            
+            appendBehaviourIfNotNull(list: &behaviour, icon: .dog, name: Text.dogFriendly.value, value: cat.dogFriendly)
+            appendBehaviourIfNotNull(list: &behaviour, icon: .cat, name: Text.catFriendly.value, value: cat.catFriendly)
+            appendBehaviourIfNotNull(list: &behaviour, icon: .child, name: Text.childFriendly.value, value: cat.childFriendly)
+            appendBehaviourIfNotNull(list: &behaviour, icon: .horn, name: Text.vocalisation.value, value: cat.vocalisation)
+            appendBehaviourIfNotNull(list: &behaviour, icon: .heart, name: Text.affectionLevel.value, value: cat.affectionLevel)
+            
             items.append(.iconTextValue(behaviour: behaviour))
             
             if let temperament = cat.temperament {
@@ -74,6 +68,12 @@ enum CatsDetail {
             }
             
             return items
+        }
+        
+        private func appendBehaviourIfNotNull(list: inout [CatBehavior], icon: Icons, name: String, value: Int?) {
+            if let value = value {
+                list.append(CatBehavior(icon: icon, name: name, value: "\(value)"))
+            }
         }
     }
 }

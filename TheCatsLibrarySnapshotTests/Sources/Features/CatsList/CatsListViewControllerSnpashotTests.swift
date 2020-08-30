@@ -30,17 +30,17 @@ class CatsListViewControllerSnapshotTests: BaseSnapshot {
     
     func testLoading() {
         sut.startLoading()
-        FBSnapshotVerifyView(sut.view)
+        FBSnapshotVerifyViewController(sut)
     }
     
     func testFetchedCatsList() {
         sut.viewDidLoad()
-        FBSnapshotVerifyView(sut.view)
+        FBSnapshotVerifyViewController(sut)
     }
     
     func testLastPage() {
         worker.isLastPage = true
         sut.viewDidLoad()
-        FBSnapshotVerifyView(sut.view)
+        FBSnapshotVerifyViewController(sut)
     }
 }
