@@ -89,7 +89,7 @@ extension HorizontalScrollCell: UICollectionViewDataSource, UICollectionViewDele
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell: ImageValueDescriptionCell = collectionView.dequeueReusableCell(forIndexPath: indexPath)
         let behaviour = self.behaviour[indexPath.row]
-        cell.setup(title: behaviour.name, subtitle: behaviour.value, image: behaviour.icon)
+        cell.setup(title: behaviour.name, subtitle: behaviour.value, icon: behaviour.icon)
         return cell
     }
 }

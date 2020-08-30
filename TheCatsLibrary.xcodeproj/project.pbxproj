@@ -12,6 +12,7 @@
 		83B4D967C6CC1CBB4E4F04FF /* Pods_TheCatsLibrary_TheCatsLibraryUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F684111DB03DCE4D2CCBBAA6 /* Pods_TheCatsLibrary_TheCatsLibraryUITests.framework */; };
 		9455166D24FB2EE600327DA6 /* ImageValueDescriptionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9455166C24FB2EE600327DA6 /* ImageValueDescriptionCell.swift */; };
 		9455166F24FB53A100327DA6 /* HorizontalScrollCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9455166E24FB53A100327DA6 /* HorizontalScrollCell.swift */; };
+		9455167124FB69C200327DA6 /* Icons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9455167024FB69C200327DA6 /* Icons.swift */; };
 		9463F4E224F4A89200186BDB /* CatsListProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9463F4E124F4A89200186BDB /* CatsListProvider.swift */; };
 		9463F4FF24F4AB8E00186BDB /* CatsListPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9463F4F924F4AB8E00186BDB /* CatsListPresenter.swift */; };
 		9463F50024F4AB8E00186BDB /* CatsListWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9463F4FA24F4AB8E00186BDB /* CatsListWorker.swift */; };
@@ -81,6 +82,7 @@
 		8D395FB113C82D946197E230 /* Pods_TheCatsLibrary.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TheCatsLibrary.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9455166C24FB2EE600327DA6 /* ImageValueDescriptionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageValueDescriptionCell.swift; sourceTree = "<group>"; };
 		9455166E24FB53A100327DA6 /* HorizontalScrollCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HorizontalScrollCell.swift; sourceTree = "<group>"; };
+		9455167024FB69C200327DA6 /* Icons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Icons.swift; sourceTree = "<group>"; };
 		9463F4E124F4A89200186BDB /* CatsListProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatsListProvider.swift; sourceTree = "<group>"; };
 		9463F4F924F4AB8E00186BDB /* CatsListPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatsListPresenter.swift; sourceTree = "<group>"; };
 		9463F4FA24F4AB8E00186BDB /* CatsListWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatsListWorker.swift; sourceTree = "<group>"; };
@@ -249,6 +251,7 @@
 				94876ABB24FB11B100BF6012 /* Spacing.swift */,
 				94876ABD24FB121A00BF6012 /* Fonts.swift */,
 				94876ABF24FB1C1800BF6012 /* States.swift */,
+				9455167024FB69C200327DA6 /* Icons.swift */,
 			);
 			path = Configuration;
 			sourceTree = "<group>";
@@ -675,6 +678,7 @@
 				946BFEE324FAA72E00DC974C /* CommonTypes.swift in Sources */,
 				949F4C4924F9FC4F00B52DCD /* Strings+Extensions.swift in Sources */,
 				94876AB524FAFAB500BF6012 /* CatsImageCell.swift in Sources */,
+				9455167124FB69C200327DA6 /* Icons.swift in Sources */,
 				9463F50324F4AB8E00186BDB /* CatsListViewController.swift in Sources */,
 				9463F50424F4AB8E00186BDB /* CatsListInteractor.swift in Sources */,
 				94712DCE24F5EF7B003002C6 /* CatsListCell.swift in Sources */,

@@ -21,3 +21,10 @@
 
 //=======CAT DETAIL==========//
 "catsDetailTitle" = "Cats Detail";
+"description" = "Description";
+"dogFriendly" = "Dog Friendly";
+"catFriendly" = "Cat Friendly";
+"childFriendly" = "Child Friendly";
+"vocalisation" = "Vocalisation";
+"affectionLevel" = "Affection Level";
+"temperament" = "Temperament";

@@ -80,10 +80,10 @@ class ImageValueDescriptionCell: UICollectionViewCell, ReusableView {
     
     // MARK: - Internal Methods
     
-    func setup(title: String, subtitle: String, image: String) {
+    func setup(title: String, subtitle: String, icon: Icons) {
         titleLabel.text = title
         subtitleLabel.text = subtitle
-        icon.image = UIImage(named: image)
+        self.icon.image = icon.image
     }
     
     // MARK: - Private Methods

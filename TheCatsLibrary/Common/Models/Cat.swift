@@ -112,6 +112,7 @@ struct Cat: Codable {
     let affectionLevel: Int?
     let vocalisation: Int?
     let childFriendly: Int?
+    let temperament: String?
     
     enum CodingKeys: String, CodingKey {
         case description
@@ -122,6 +123,7 @@ struct Cat: Codable {
         case affectionLevel = "affection_level"
         case vocalisation
         case childFriendly = "child_friendly"
+        case temperament
     }
 }
 

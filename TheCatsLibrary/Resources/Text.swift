@@ -21,6 +21,14 @@ internal enum Text: String {
     
     //=======CAT DETAIL==========//
     case catsDetailTitle
+    case description
+    case dogFriendly
+    case catFriendly
+    case childFriendly
+    case vocalisation
+    case affectionLevel
+    case temperament
+    
     public var value: String {
         return String(describing: self.rawValue).localized()
     }
