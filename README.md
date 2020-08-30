@@ -2,11 +2,11 @@
 The cats library is a master detail app that shows the cats available at https://thecatapi.com/ and the details of it.
 
 ### Demo
-/Users/maurocoletes/Documents/TheCatLibrary/App-presentaion.gif
+![Alt Text](/App-presentaion.gif)
 
 ## Prerequisites
 * [Xcode](https://developer.apple.com/xcode/) 11.6
-* [Cocoapods](https://cocoapods.org) 1.9.1 (only if you want to update the Pods, they are already inside the project).
+* [Cocoapods](https://cocoapods.org) 1.9.1 (only if you want to update the Pods, they are already within the workspace).
 
 ## Architecture
 ### List of Cats
