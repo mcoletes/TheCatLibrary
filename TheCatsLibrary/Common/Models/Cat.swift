@@ -104,13 +104,14 @@ import Foundation
 
 // MARK: - Cat
 struct Cat: Codable {
-    let catDescription: String
+    let description: String
     let name: String
-
-    enum CodingKeys: String, CodingKey {
-        case catDescription = "description"
-        case name = "name"
-    }
+    let id: String
+//    enum CodingKeys: String, CodingKey {
+//        case catDescription = "description"
+//        case name = "name"
+//        case id
+//    }
 }
 
 // MARK: - Weight
