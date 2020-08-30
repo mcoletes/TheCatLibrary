@@ -16,7 +16,7 @@ The cats library is a master detail app that shows the cats available at https:/
     *  The detail feature was developed using Reactive MVVM with a simple binding class do perform reactiveness between view model and view controller.
 
 ## UI
-* Used both view code and Xibs to develop the UI
+* Used both view code and Xibs to develop the UI.
 
 ## Tests
 * Snapshot Tests - [iOSSnapshotTestCase (previously FBSnapshotTestCase)](https://github.com/uber/ios-snapshot-test-case)
