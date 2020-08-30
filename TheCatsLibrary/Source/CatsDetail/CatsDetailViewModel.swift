@@ -53,7 +53,7 @@ class CatsDetailViewModel: CatsDetailViewModelProtocol {
                 guard let href = catDetail.first?.url else { return }
                 self.catState.value = CatsDetail.ViewState(cat: self.cat, href: href)
             case .failure(let error):
-                self.state.value = .error(error: "errooooo")
+                self.state.value = .error(error: Text.catsDetailErrorMessage.value)
                 print(error)
             }
         }

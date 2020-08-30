@@ -67,8 +67,7 @@ extension CatsDetailViewController: BindableView {
         viewModel.state.bind { [weak self] state in
             switch state {
             case .error(let message):
-                //TODO handle error
-                break
+                self?.displayError(message: message, actionButtonTitle: Text.warningButtonTryAgain.value, tryAgainAction: self?.viewModel.fetchCatDetails)
             default:
                 break
             }

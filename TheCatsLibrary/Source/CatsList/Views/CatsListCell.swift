@@ -30,6 +30,7 @@ class CatsListCell: UICollectionViewCell, ReusableView {
     
     private lazy var stackView: UIStackView = {
         let stackView = UIStackView()
+        stackView.contentMode = .scaleToFill
         stackView.translatesAutoresizingMaskIntoConstraints = false
         stackView.axis = .vertical
         stackView.spacing = CatsListCell.kSpacingStackViewElements

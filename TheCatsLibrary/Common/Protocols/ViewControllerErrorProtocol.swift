@@ -27,7 +27,8 @@ extension ViewControllerErrorProtocol where Self: UIViewController  {
         let cancelAction = UIAlertAction(title: Text.warningButtonDismissTitle.value, style: .cancel)
 
         alertController.addAction(cancelAction)
-
-        self.present(alertController, animated: true, completion: nil)
+        DispatchQueue.main.async {
+            self.present(alertController, animated: true, completion: nil)
+        }
     }
 }

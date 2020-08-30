@@ -1,23 +1,24 @@
 /* 
-  Localizable.strings
-  TheCatsLibrary
-
-  Created by Mauro Coletes on 29/08/20.
-  Copyright © 2020 Mauro Coletes. All rights reserved.
-*/
+ Localizable.strings
+ TheCatsLibrary
+ 
+ Created by Mauro Coletes on 29/08/20.
+ Copyright © 2020 Mauro Coletes. All rights reserved.
+ */
 
 
 //=======ERROR/WARNING VIEW==========//
-
 "warningTitle" = "Ops!";
 "warningButtonDismissTitle" = "Ok";
 "warningButtonTryAgain" = "Try again";
+//=======END ERROR/WARNING VIEW==========//
 
 //=======CATS LIST==========//
 "catsListTitle" = "Cats List";
 "catsListLastCatTitle" = "IT's Over =( 🐱🐱🐱";
 "catsListLastCatDescription" = "That's all cats that we have in our library!";
-
+"catsListErrorMessage" = "Something went wrong...";
+//=======END CATS LIST==========//
 
 //=======CAT DETAIL==========//
 "catsDetailTitle" = "Cats Detail";
@@ -28,3 +29,5 @@
 "vocalisation" = "Vocalisation";
 "affectionLevel" = "Affection Level";
 "temperament" = "Temperament";
+"catsDetailErrorMessage" = "Something went wrong to download the image...";
+//=======END CAT DETAIL==========//
