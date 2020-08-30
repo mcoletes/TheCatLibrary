@@ -8,7 +8,9 @@
 
 import UIKit
 
-class ImageValueDescriptionCell: UITableViewCell, ReusableView {
+class ImageValueDescriptionCell: UICollectionViewCell, ReusableView {
+    
+    // MARK: - Private Properties
     
     private lazy var mainView: UIView = {
         let view = UIView()
@@ -64,13 +66,10 @@ class ImageValueDescriptionCell: UITableViewCell, ReusableView {
         return icon
     }()
     
-    func setup(title: String, subtitle: String, image: String) {
-        titleLabel.text = title
-        subtitleLabel.text = subtitle
-        icon.image = UIImage(named: image)
-    }
-    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
-        super.init(style: style, reuseIdentifier: reuseIdentifier)
+    // MARK: - Init
+    
+    override init(frame: CGRect) {
+        super.init(frame: frame)
         setup()
     }
     
@@ -79,14 +78,26 @@ class ImageValueDescriptionCell: UITableViewCell, ReusableView {
         setup()
     }
     
+    // MARK: - Internal Methods
+    
+    func setup(title: String, subtitle: String, image: String) {
+        titleLabel.text = title
+        subtitleLabel.text = subtitle
+        icon.image = UIImage(named: image)
+    }
+    
+    // MARK: - Private Methods
+    
     private func setup() {
-        selectionStyle = .none
         addViewHierarchy()
         addConstraints()
     }
 }
 
 extension ImageValueDescriptionCell: ViewCodeProtocol {
+    
+    // MARK: - ViewCodeProtocol
+    
     func addViewHierarchy() {
         addSubview(mainView)
         mainView.addSubview(stackView)
@@ -94,8 +105,8 @@ extension ImageValueDescriptionCell: ViewCodeProtocol {
     
     func addConstraints() {
         mainView.leadingAnchor.constraint(equalTo: self.leadingAnchor).isActive = true
-        mainView.topAnchor.constraint(equalTo: self.topAnchor, constant: Spacing.defaultMarginSpacing.rawValue).isActive = true
-        mainView.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -Spacing.defaultMarginSpacing.rawValue).isActive = true
+        mainView.topAnchor.constraint(equalTo: self.topAnchor).isActive = true
+        mainView.bottomAnchor.constraint(equalTo: self.bottomAnchor).isActive = true
         mainView.trailingAnchor.constraint(equalTo: self.trailingAnchor).isActive = true
         
         stackView.leadingAnchor.constraint(equalTo: mainView.leadingAnchor, constant: Spacing.defaultMarginSpacing.rawValue).isActive = true

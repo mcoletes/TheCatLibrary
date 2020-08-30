@@ -21,8 +21,12 @@ protocol CatsListPresentationLogic {
 
 class CatsListPresenter: CatsListPresentationLogic {
     
-  weak var viewController: CatsListDisplayLogic?
-  
+    // MARK: - Internal Properties
+    
+    weak var viewController: CatsListDisplayLogic?
+    
+    // MARK: - Internal Methods
+    
     func presentLoading() {
         viewController?.startLoading()
     }
@@ -33,7 +37,7 @@ class CatsListPresenter: CatsListPresentationLogic {
     
     func presentCats(cats: [Cat], isLastPage: Bool) {
         var catsList = cats.map({ CatsList.CatVM(name: $0.name, description: $0.description, color: CatsList.Color.blue) })
-
+        
         if isLastPage {
             catsList.append(CatsList.CatVM(name: Text.catsListLastCatTitle.value, description: Text.catsListLastCatDescription.value, color: CatsList.Color.black))
         }

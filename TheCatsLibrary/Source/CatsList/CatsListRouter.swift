@@ -13,19 +13,22 @@
 import UIKit
 
 @objc protocol CatsListRoutingLogic {
-  func routeToCatDetail()
+    func routeToCatDetail()
 }
 
 protocol CatsListDataPassing {
-  var dataStore: CatsListDataStore? { get }
+    var dataStore: CatsListDataStore? { get }
 }
 
 class CatsListRouter: NSObject, CatsListRoutingLogic, CatsListDataPassing {
-  weak var viewController: CatsListViewController?
-  var dataStore: CatsListDataStore?
-  
-  // MARK: Routing
-  
+    
+    // MARK: - Internal Properties
+    
+    weak var viewController: CatsListViewController?
+    var dataStore: CatsListDataStore?
+    
+    // MARK: - Routing
+    
     func routeToCatDetail() {
         guard let cat = dataStore?.cat else { return }
         let vc = CatsDetailViewController(viewModel: CatsDetailViewModel(cat: cat))

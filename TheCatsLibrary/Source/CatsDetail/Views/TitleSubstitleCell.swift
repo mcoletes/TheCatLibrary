@@ -10,6 +10,8 @@ import UIKit
 
 class TitleSubstitleCell: UITableViewCell, ReusableView {
     
+    // MARK: - Private Properties
+    
     private lazy var mainView: UIView = {
         let view = UIView()
         view.translatesAutoresizingMaskIntoConstraints = false
@@ -47,10 +49,8 @@ class TitleSubstitleCell: UITableViewCell, ReusableView {
         return label
     }()
     
-    func setup(title: String, subtitle: String) {
-        titleLabel.text = title
-        subtitleLabel.text = subtitle
-    }
+    // MARK: - Init
+    
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         setup()
@@ -61,6 +61,17 @@ class TitleSubstitleCell: UITableViewCell, ReusableView {
         setup()
     }
     
+    
+    // MARK: - Internal Methods
+    
+    func setup(title: String, subtitle: String) {
+        titleLabel.text = title
+        subtitleLabel.text = subtitle
+    }
+    
+    
+    // MARK: - Private Methods
+    
     private func setup(){
         selectionStyle = .none
         addViewHierarchy()
@@ -69,6 +80,9 @@ class TitleSubstitleCell: UITableViewCell, ReusableView {
 }
 
 extension TitleSubstitleCell: ViewCodeProtocol {
+    
+    // MARK: - ViewCodeProtocol
+    
     func addViewHierarchy() {
         addSubview(mainView)
         mainView.addSubview(stackView)

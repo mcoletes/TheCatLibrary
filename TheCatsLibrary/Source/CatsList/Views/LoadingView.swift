@@ -10,7 +10,7 @@ import UIKit
 
 class LoadingView: UICollectionReusableView, ReusableView {
     
-    //MARK: Private Properties
+    // MARK: - Private Properties
     
     private lazy var activityIndicator: UIActivityIndicatorView = {
         let activityIndicator = UIActivityIndicatorView(style: .large)
@@ -19,7 +19,7 @@ class LoadingView: UICollectionReusableView, ReusableView {
         return activityIndicator
     }()
     
-    //MARK: Init
+    // MARK: - Init
     override init(frame: CGRect) {
         super.init(frame: frame)
         setup()
@@ -30,7 +30,7 @@ class LoadingView: UICollectionReusableView, ReusableView {
         setup()
     }
     
-    //MARK: Private Methods
+    // MARK: - Private Methods
     private func setup(){
         setupUI()
         addViewHierarchy()
@@ -42,6 +42,8 @@ class LoadingView: UICollectionReusableView, ReusableView {
     }
 }
 extension LoadingView: ViewCodeProtocol {
+    
+    // MARK: - ViewCodeProtocol
     func addViewHierarchy() {
         addSubview(activityIndicator)
     }
