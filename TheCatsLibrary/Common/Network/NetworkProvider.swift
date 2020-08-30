@@ -30,6 +30,7 @@ class NetworkProvider {
         self.route = route
     }
     
+    @discardableResult
     func fetch<T: Decodable>(completion: @escaping completionDataCallback<T>) -> URLSessionDataTask {
         let request = route.asURLRequest()
                 Logger.logRequest(request: request)
@@ -63,7 +64,8 @@ class NetworkProvider {
                 completion(.success(model))
                 return
             }
-            catch {
+            catch let error{
+                print(error)
                  completion(.failure(ServiceError.jsonParsingFailure))
                 return
             }

@@ -1,0 +1,28 @@
+//
+//  Text.swift
+//  TheCatsLibrary
+//
+//  Created by Mauro Coletes on 29/08/20.
+//  Copyright © 2020 Mauro Coletes. All rights reserved.
+//
+
+import Foundation
+
+internal enum Text: String {
+    //=======ERROR/WARNING VIEW==========//
+    case warningTitle
+    case warningButtonDismissTitle
+    case warningButtonTryAgain
+    
+    //=======CATS LIST==========//
+    case catsListTitle
+    case catsListLastCatTitle
+    case catsListLastCatDescription
+    
+    //=======CAT DETAIL==========//
+    case catsDetailTitle
+    public var value: String {
+        return String(describing: self.rawValue).localized()
+    }
+    
+}

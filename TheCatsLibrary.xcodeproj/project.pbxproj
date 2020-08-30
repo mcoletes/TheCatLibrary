@@ -10,10 +10,24 @@
 		062C69D44D77C04283BE8494 /* Pods_TheCatsLibraryTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3EE96C6FC3436C44A9BBE8B0 /* Pods_TheCatsLibraryTests.framework */; };
 		423AF2802C7A2285B3470D1C /* Pods_TheCatsLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8D395FB113C82D946197E230 /* Pods_TheCatsLibrary.framework */; };
 		83B4D967C6CC1CBB4E4F04FF /* Pods_TheCatsLibrary_TheCatsLibraryUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F684111DB03DCE4D2CCBBAA6 /* Pods_TheCatsLibrary_TheCatsLibraryUITests.framework */; };
+		9463F4E224F4A89200186BDB /* CatsListProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9463F4E124F4A89200186BDB /* CatsListProvider.swift */; };
+		9463F4FF24F4AB8E00186BDB /* CatsListPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9463F4F924F4AB8E00186BDB /* CatsListPresenter.swift */; };
+		9463F50024F4AB8E00186BDB /* CatsListWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9463F4FA24F4AB8E00186BDB /* CatsListWorker.swift */; };
+		9463F50124F4AB8E00186BDB /* CatsListRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9463F4FB24F4AB8E00186BDB /* CatsListRouter.swift */; };
+		9463F50224F4AB8E00186BDB /* CatsListModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9463F4FC24F4AB8E00186BDB /* CatsListModels.swift */; };
+		9463F50324F4AB8E00186BDB /* CatsListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9463F4FD24F4AB8E00186BDB /* CatsListViewController.swift */; };
+		9463F50424F4AB8E00186BDB /* CatsListInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9463F4FE24F4AB8E00186BDB /* CatsListInteractor.swift */; };
+		9463F50724F4B26900186BDB /* Cat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9463F50624F4B26900186BDB /* Cat.swift */; };
+		946BFEDA24FA8E7D00DC974C /* ViewCodeProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 946BFED924FA8E7D00DC974C /* ViewCodeProtocol.swift */; };
+		946BFEDE24FA9E1000DC974C /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 946BFEDD24FA9E1000DC974C /* LoadingView.swift */; };
+		946BFEE124FAA6FC00DC974C /* ViewControllerErrorProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 946BFEE024FAA6FC00DC974C /* ViewControllerErrorProtocol.swift */; };
+		946BFEE324FAA72E00DC974C /* CommonTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 946BFEE224FAA72E00DC974C /* CommonTypes.swift */; };
+		946BFEE524FAA7B500DC974C /* Text.swift in Sources */ = {isa = PBXBuildFile; fileRef = 946BFEE424FAA7B500DC974C /* Text.swift */; };
+		946BFEE724FAA80D00DC974C /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 946BFEE624FAA80D00DC974C /* Localizable.strings */; };
+		94712DCE24F5EF7B003002C6 /* CatsListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94712DCC24F5EF7B003002C6 /* CatsListCell.swift */; };
+		94712DD224F5F308003002C6 /* ReusableCells.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94712DD124F5F308003002C6 /* ReusableCells.swift */; };
+		949F4C4924F9FC4F00B52DCD /* Strings+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 949F4C4824F9FC4F00B52DCD /* Strings+Extensions.swift */; };
 		94F5BF5924F49E6F0005C3E6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94F5BF5824F49E6F0005C3E6 /* AppDelegate.swift */; };
-		94F5BF5B24F49E6F0005C3E6 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94F5BF5A24F49E6F0005C3E6 /* SceneDelegate.swift */; };
-		94F5BF5D24F49E6F0005C3E6 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94F5BF5C24F49E6F0005C3E6 /* ViewController.swift */; };
-		94F5BF6024F49E6F0005C3E6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 94F5BF5E24F49E6F0005C3E6 /* Main.storyboard */; };
 		94F5BF6224F49E6F0005C3E6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 94F5BF6124F49E6F0005C3E6 /* Assets.xcassets */; };
 		94F5BF6524F49E6F0005C3E6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 94F5BF6324F49E6F0005C3E6 /* LaunchScreen.storyboard */; };
 		94F5BF7024F49E6F0005C3E6 /* TheCatsLibraryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94F5BF6F24F49E6F0005C3E6 /* TheCatsLibraryTests.swift */; };
@@ -23,6 +37,7 @@
 		94F5BF9324F4A0CF0005C3E6 /* ServiceError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94F5BF8F24F4A0CF0005C3E6 /* ServiceError.swift */; };
 		94F5BF9424F4A0CF0005C3E6 /* URLRequestProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94F5BF9024F4A0CF0005C3E6 /* URLRequestProtocol.swift */; };
 		94F5BF9624F4A1530005C3E6 /* ENV.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94F5BF9524F4A1520005C3E6 /* ENV.swift */; };
+		94F5BF9E24F4A5080005C3E6 /* CatsListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 94F5BF9C24F4A5080005C3E6 /* CatsListViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,11 +64,25 @@
 		5CD64A1FDF983BC7ADA94F16 /* Pods-TheCatsLibrary.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TheCatsLibrary.release.xcconfig"; path = "Target Support Files/Pods-TheCatsLibrary/Pods-TheCatsLibrary.release.xcconfig"; sourceTree = "<group>"; };
 		88E5499B0179225858431037 /* Pods-TheCatsLibrary-TheCatsLibraryUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TheCatsLibrary-TheCatsLibraryUITests.debug.xcconfig"; path = "Target Support Files/Pods-TheCatsLibrary-TheCatsLibraryUITests/Pods-TheCatsLibrary-TheCatsLibraryUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		8D395FB113C82D946197E230 /* Pods_TheCatsLibrary.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TheCatsLibrary.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9463F4E124F4A89200186BDB /* CatsListProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatsListProvider.swift; sourceTree = "<group>"; };
+		9463F4F924F4AB8E00186BDB /* CatsListPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatsListPresenter.swift; sourceTree = "<group>"; };
+		9463F4FA24F4AB8E00186BDB /* CatsListWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatsListWorker.swift; sourceTree = "<group>"; };
+		9463F4FB24F4AB8E00186BDB /* CatsListRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatsListRouter.swift; sourceTree = "<group>"; };
+		9463F4FC24F4AB8E00186BDB /* CatsListModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatsListModels.swift; sourceTree = "<group>"; };
+		9463F4FD24F4AB8E00186BDB /* CatsListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatsListViewController.swift; sourceTree = "<group>"; };
+		9463F4FE24F4AB8E00186BDB /* CatsListInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatsListInteractor.swift; sourceTree = "<group>"; };
+		9463F50624F4B26900186BDB /* Cat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cat.swift; sourceTree = "<group>"; };
+		946BFED924FA8E7D00DC974C /* ViewCodeProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewCodeProtocol.swift; sourceTree = "<group>"; };
+		946BFEDD24FA9E1000DC974C /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
+		946BFEE024FAA6FC00DC974C /* ViewControllerErrorProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerErrorProtocol.swift; sourceTree = "<group>"; };
+		946BFEE224FAA72E00DC974C /* CommonTypes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommonTypes.swift; sourceTree = "<group>"; };
+		946BFEE424FAA7B500DC974C /* Text.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Text.swift; sourceTree = "<group>"; };
+		946BFEE624FAA80D00DC974C /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
+		94712DCC24F5EF7B003002C6 /* CatsListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatsListCell.swift; sourceTree = "<group>"; };
+		94712DD124F5F308003002C6 /* ReusableCells.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReusableCells.swift; sourceTree = "<group>"; };
+		949F4C4824F9FC4F00B52DCD /* Strings+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Strings+Extensions.swift"; sourceTree = "<group>"; };
 		94F5BF5524F49E6F0005C3E6 /* TheCatsLibrary.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TheCatsLibrary.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		94F5BF5824F49E6F0005C3E6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		94F5BF5A24F49E6F0005C3E6 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		94F5BF5C24F49E6F0005C3E6 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		94F5BF5F24F49E6F0005C3E6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		94F5BF6124F49E6F0005C3E6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		94F5BF6424F49E6F0005C3E6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		94F5BF6624F49E6F0005C3E6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -68,6 +97,7 @@
 		94F5BF8F24F4A0CF0005C3E6 /* ServiceError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServiceError.swift; sourceTree = "<group>"; };
 		94F5BF9024F4A0CF0005C3E6 /* URLRequestProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = URLRequestProtocol.swift; sourceTree = "<group>"; };
 		94F5BF9524F4A1520005C3E6 /* ENV.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ENV.swift; sourceTree = "<group>"; };
+		94F5BF9C24F4A5080005C3E6 /* CatsListViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CatsListViewController.xib; sourceTree = "<group>"; };
 		AB378DEAB7BD1A374488C2EB /* Pods-TheCatsLibraryTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TheCatsLibraryTests.release.xcconfig"; path = "Target Support Files/Pods-TheCatsLibraryTests/Pods-TheCatsLibraryTests.release.xcconfig"; sourceTree = "<group>"; };
 		C19DED07D5847E46967B77E8 /* Pods-TheCatsLibraryTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TheCatsLibraryTests.debug.xcconfig"; path = "Target Support Files/Pods-TheCatsLibraryTests/Pods-TheCatsLibraryTests.debug.xcconfig"; sourceTree = "<group>"; };
 		F684111DB03DCE4D2CCBBAA6 /* Pods_TheCatsLibrary_TheCatsLibraryUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TheCatsLibrary_TheCatsLibraryUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -124,6 +154,57 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		9463F4E024F4A87E00186BDB /* Provider */ = {
+			isa = PBXGroup;
+			children = (
+				9463F4E124F4A89200186BDB /* CatsListProvider.swift */,
+			);
+			path = Provider;
+			sourceTree = "<group>";
+		};
+		9463F50524F4B25B00186BDB /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				9463F50624F4B26900186BDB /* Cat.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		946BFEDF24FAA6E900DC974C /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				946BFED924FA8E7D00DC974C /* ViewCodeProtocol.swift */,
+				946BFEE024FAA6FC00DC974C /* ViewControllerErrorProtocol.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
+		94712DCB24F5EF60003002C6 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				94712DCC24F5EF7B003002C6 /* CatsListCell.swift */,
+				946BFEDD24FA9E1000DC974C /* LoadingView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		94712DD024F5F300003002C6 /* Configuration */ = {
+			isa = PBXGroup;
+			children = (
+				946BFEE224FAA72E00DC974C /* CommonTypes.swift */,
+				94712DD124F5F308003002C6 /* ReusableCells.swift */,
+			);
+			path = Configuration;
+			sourceTree = "<group>";
+		};
+		949F4C4724F9FC3300B52DCD /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				949F4C4824F9FC4F00B52DCD /* Strings+Extensions.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		94F5BF4C24F49E6F0005C3E6 = {
 			isa = PBXGroup;
 			children = (
@@ -178,6 +259,10 @@
 		94F5BF8824F49EA70005C3E6 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				946BFEDF24FAA6E900DC974C /* Protocols */,
+				949F4C4724F9FC3300B52DCD /* Extensions */,
+				94712DD024F5F300003002C6 /* Configuration */,
+				9463F50524F4B25B00186BDB /* Models */,
 				94F5BF8C24F4A0CF0005C3E6 /* Network */,
 			);
 			path = Common;
@@ -188,7 +273,6 @@
 			children = (
 				94F5BF9524F4A1520005C3E6 /* ENV.swift */,
 				94F5BF5824F49E6F0005C3E6 /* AppDelegate.swift */,
-				94F5BF5A24F49E6F0005C3E6 /* SceneDelegate.swift */,
 				94F5BF6324F49E6F0005C3E6 /* LaunchScreen.storyboard */,
 				94F5BF6624F49E6F0005C3E6 /* Info.plist */,
 			);
@@ -199,6 +283,8 @@
 			isa = PBXGroup;
 			children = (
 				94F5BF6124F49E6F0005C3E6 /* Assets.xcassets */,
+				946BFEE424FAA7B500DC974C /* Text.swift */,
+				946BFEE624FAA80D00DC974C /* Localizable.strings */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -206,8 +292,7 @@
 		94F5BF8B24F49EBA0005C3E6 /* Source */ = {
 			isa = PBXGroup;
 			children = (
-				94F5BF5C24F49E6F0005C3E6 /* ViewController.swift */,
-				94F5BF5E24F49E6F0005C3E6 /* Main.storyboard */,
+				94F5BF9B24F4A5080005C3E6 /* CatsList */,
 			);
 			path = Source;
 			sourceTree = "<group>";
@@ -221,6 +306,22 @@
 				94F5BF9024F4A0CF0005C3E6 /* URLRequestProtocol.swift */,
 			);
 			path = Network;
+			sourceTree = "<group>";
+		};
+		94F5BF9B24F4A5080005C3E6 /* CatsList */ = {
+			isa = PBXGroup;
+			children = (
+				94712DCB24F5EF60003002C6 /* Views */,
+				9463F4E024F4A87E00186BDB /* Provider */,
+				9463F4FA24F4AB8E00186BDB /* CatsListWorker.swift */,
+				9463F4FB24F4AB8E00186BDB /* CatsListRouter.swift */,
+				9463F4FC24F4AB8E00186BDB /* CatsListModels.swift */,
+				9463F4FE24F4AB8E00186BDB /* CatsListInteractor.swift */,
+				9463F4F924F4AB8E00186BDB /* CatsListPresenter.swift */,
+				9463F4FD24F4AB8E00186BDB /* CatsListViewController.swift */,
+				94F5BF9C24F4A5080005C3E6 /* CatsListViewController.xib */,
+			);
+			path = CatsList;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -334,8 +435,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				94F5BF6524F49E6F0005C3E6 /* LaunchScreen.storyboard in Resources */,
+				946BFEE724FAA80D00DC974C /* Localizable.strings in Resources */,
 				94F5BF6224F49E6F0005C3E6 /* Assets.xcassets in Resources */,
-				94F5BF6024F49E6F0005C3E6 /* Main.storyboard in Resources */,
+				94F5BF9E24F4A5080005C3E6 /* CatsListViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -481,13 +583,27 @@
 			buildActionMask = 2147483647;
 			files = (
 				94F5BF9324F4A0CF0005C3E6 /* ServiceError.swift in Sources */,
-				94F5BF5D24F49E6F0005C3E6 /* ViewController.swift in Sources */,
+				9463F50024F4AB8E00186BDB /* CatsListWorker.swift in Sources */,
+				946BFEDA24FA8E7D00DC974C /* ViewCodeProtocol.swift in Sources */,
+				9463F4FF24F4AB8E00186BDB /* CatsListPresenter.swift in Sources */,
+				9463F50224F4AB8E00186BDB /* CatsListModels.swift in Sources */,
+				946BFEE124FAA6FC00DC974C /* ViewControllerErrorProtocol.swift in Sources */,
+				94712DD224F5F308003002C6 /* ReusableCells.swift in Sources */,
 				94F5BF5924F49E6F0005C3E6 /* AppDelegate.swift in Sources */,
-				94F5BF5B24F49E6F0005C3E6 /* SceneDelegate.swift in Sources */,
+				946BFEE324FAA72E00DC974C /* CommonTypes.swift in Sources */,
+				949F4C4924F9FC4F00B52DCD /* Strings+Extensions.swift in Sources */,
+				9463F50324F4AB8E00186BDB /* CatsListViewController.swift in Sources */,
+				9463F50424F4AB8E00186BDB /* CatsListInteractor.swift in Sources */,
+				94712DCE24F5EF7B003002C6 /* CatsListCell.swift in Sources */,
 				94F5BF9424F4A0CF0005C3E6 /* URLRequestProtocol.swift in Sources */,
+				9463F50724F4B26900186BDB /* Cat.swift in Sources */,
+				9463F4E224F4A89200186BDB /* CatsListProvider.swift in Sources */,
 				94F5BF9624F4A1530005C3E6 /* ENV.swift in Sources */,
+				946BFEDE24FA9E1000DC974C /* LoadingView.swift in Sources */,
 				94F5BF9124F4A0CF0005C3E6 /* Logger.swift in Sources */,
 				94F5BF9224F4A0CF0005C3E6 /* NetworkProvider.swift in Sources */,
+				946BFEE524FAA7B500DC974C /* Text.swift in Sources */,
+				9463F50124F4AB8E00186BDB /* CatsListRouter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -523,14 +639,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		94F5BF5E24F49E6F0005C3E6 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				94F5BF5F24F49E6F0005C3E6 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		94F5BF6324F49E6F0005C3E6 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
