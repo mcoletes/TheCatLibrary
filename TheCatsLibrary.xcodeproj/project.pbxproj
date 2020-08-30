@@ -16,6 +16,14 @@
 		943B09CC24FC07D200769A69 /* CatsListWorkerMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94EE222224FBF8070005BC6F /* CatsListWorkerMock.swift */; };
 		943B09CF24FC0BB100769A69 /* CatsListCellSnapshotTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 943B09CE24FC0BB100769A69 /* CatsListCellSnapshotTests.swift */; };
 		943B09D124FC0FEA00769A69 /* LoadingViewSnapshotTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 943B09D024FC0FEA00769A69 /* LoadingViewSnapshotTests.swift */; };
+		943B09D324FC115400769A69 /* CatsDetailViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 943B09D224FC115400769A69 /* CatsDetailViewModelTests.swift */; };
+		943B09D524FC124B00769A69 /* CatsDetailWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 943B09D424FC124B00769A69 /* CatsDetailWorker.swift */; };
+		943B09D824FC137B00769A69 /* CatsDetailWorkerMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 943B09D724FC137B00769A69 /* CatsDetailWorkerMock.swift */; };
+		943B09DA24FC13DA00769A69 /* CatDetail.json in Resources */ = {isa = PBXBuildFile; fileRef = 943B09D924FC13DA00769A69 /* CatDetail.json */; };
+		943B09DC24FC166400769A69 /* MocksEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 943B09DB24FC166400769A69 /* MocksEnum.swift */; };
+		943B09DD24FC16B200769A69 /* MocksEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 943B09DB24FC166400769A69 /* MocksEnum.swift */; };
+		943B09DF24FC182600769A69 /* CatsDetailViewControllerMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 943B09DE24FC182600769A69 /* CatsDetailViewControllerMock.swift */; };
+		943B09E224FC1CB600769A69 /* XCTestCase+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 943B09E124FC1CB600769A69 /* XCTestCase+Extensions.swift */; };
 		9455166D24FB2EE600327DA6 /* ImageValueDescriptionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9455166C24FB2EE600327DA6 /* ImageValueDescriptionCell.swift */; };
 		9455166F24FB53A100327DA6 /* HorizontalScrollCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9455166E24FB53A100327DA6 /* HorizontalScrollCell.swift */; };
 		9455167124FB69C200327DA6 /* Icons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9455167024FB69C200327DA6 /* Icons.swift */; };
@@ -112,6 +120,13 @@
 		943B09CA24FC06F100769A69 /* BaseSnapshot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseSnapshot.swift; sourceTree = "<group>"; };
 		943B09CE24FC0BB100769A69 /* CatsListCellSnapshotTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatsListCellSnapshotTests.swift; sourceTree = "<group>"; };
 		943B09D024FC0FEA00769A69 /* LoadingViewSnapshotTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingViewSnapshotTests.swift; sourceTree = "<group>"; };
+		943B09D224FC115400769A69 /* CatsDetailViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatsDetailViewModelTests.swift; sourceTree = "<group>"; };
+		943B09D424FC124B00769A69 /* CatsDetailWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatsDetailWorker.swift; sourceTree = "<group>"; };
+		943B09D724FC137B00769A69 /* CatsDetailWorkerMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatsDetailWorkerMock.swift; sourceTree = "<group>"; };
+		943B09D924FC13DA00769A69 /* CatDetail.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = CatDetail.json; sourceTree = "<group>"; };
+		943B09DB24FC166400769A69 /* MocksEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MocksEnum.swift; sourceTree = "<group>"; };
+		943B09DE24FC182600769A69 /* CatsDetailViewControllerMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatsDetailViewControllerMock.swift; sourceTree = "<group>"; };
+		943B09E124FC1CB600769A69 /* XCTestCase+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "XCTestCase+Extensions.swift"; sourceTree = "<group>"; };
 		9455166C24FB2EE600327DA6 /* ImageValueDescriptionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageValueDescriptionCell.swift; sourceTree = "<group>"; };
 		9455166E24FB53A100327DA6 /* HorizontalScrollCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HorizontalScrollCell.swift; sourceTree = "<group>"; };
 		9455167024FB69C200327DA6 /* Icons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Icons.swift; sourceTree = "<group>"; };
@@ -277,6 +292,8 @@
 		94141FA024FBF59800743E13 /* CatsDetail */ = {
 			isa = PBXGroup;
 			children = (
+				943B09D624FC135C00769A69 /* Mock */,
+				943B09D224FC115400769A69 /* CatsDetailViewModelTests.swift */,
 			);
 			path = CatsDetail;
 			sourceTree = "<group>";
@@ -332,6 +349,23 @@
 				943B09D024FC0FEA00769A69 /* LoadingViewSnapshotTests.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		943B09D624FC135C00769A69 /* Mock */ = {
+			isa = PBXGroup;
+			children = (
+				943B09D724FC137B00769A69 /* CatsDetailWorkerMock.swift */,
+				943B09DE24FC182600769A69 /* CatsDetailViewControllerMock.swift */,
+			);
+			path = Mock;
+			sourceTree = "<group>";
+		};
+		943B09E024FC1CA800769A69 /* Exntensions */ = {
+			isa = PBXGroup;
+			children = (
+				943B09E124FC1CB600769A69 /* XCTestCase+Extensions.swift */,
+			);
+			path = Exntensions;
 			sourceTree = "<group>";
 		};
 		9455167324FB775500327DA6 /* Features */ = {
@@ -391,6 +425,7 @@
 				946BFEEE24FAB30000DC974C /* CatsDetailViewModel.swift */,
 				946BFEEC24FAB2F400DC974C /* CatsDetailViewController.swift */,
 				946BFEEA24FAB2DE00DC974C /* CatsDetailView.swift */,
+				943B09D424FC124B00769A69 /* CatsDetailWorker.swift */,
 			);
 			path = CatsDetail;
 			sourceTree = "<group>";
@@ -451,6 +486,7 @@
 		94EE222424FBF85E0005BC6F /* Util */ = {
 			isa = PBXGroup;
 			children = (
+				943B09E024FC1CA800769A69 /* Exntensions */,
 				94EE222524FBF8700005BC6F /* ServiceStatus.swift */,
 				94EE222724FBFAD90005BC6F /* JsonLoader.swift */,
 			);
@@ -461,6 +497,8 @@
 			isa = PBXGroup;
 			children = (
 				94EE222B24FBFBE60005BC6F /* CatsList.json */,
+				943B09D924FC13DA00769A69 /* CatDetail.json */,
+				943B09DB24FC166400769A69 /* MocksEnum.swift */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -742,6 +780,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				94EE222C24FBFBE60005BC6F /* CatsList.json in Resources */,
+				943B09DA24FC13DA00769A69 /* CatDetail.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -906,6 +945,7 @@
 				943B09CC24FC07D200769A69 /* CatsListWorkerMock.swift in Sources */,
 				943B09C824FC029800769A69 /* CatsListViewControllerSnpashotTests.swift in Sources */,
 				943B09CF24FC0BB100769A69 /* CatsListCellSnapshotTests.swift in Sources */,
+				943B09DD24FC16B200769A69 /* MocksEnum.swift in Sources */,
 				943B09D124FC0FEA00769A69 /* LoadingViewSnapshotTests.swift in Sources */,
 				94EE223624FBFE8E0005BC6F /* CatsListViewControllerSpy.swift in Sources */,
 				94EE223724FBFF8A0005BC6F /* ServiceStatus.swift in Sources */,
@@ -953,6 +993,7 @@
 				94F5BF9224F4A0CF0005C3E6 /* NetworkProvider.swift in Sources */,
 				946BFEE524FAA7B500DC974C /* Text.swift in Sources */,
 				94876AC024FB1C1800BF6012 /* States.swift in Sources */,
+				943B09D524FC124B00769A69 /* CatsDetailWorker.swift in Sources */,
 				9463F50124F4AB8E00186BDB /* CatsListRouter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -965,8 +1006,13 @@
 				94EE222F24FBFE620005BC6F /* CatsListPresenterTest.swift in Sources */,
 				94EE222324FBF8070005BC6F /* CatsListWorkerMock.swift in Sources */,
 				94141FA224FBF5B800743E13 /* CatsListInteractorTest.swift in Sources */,
+				943B09E224FC1CB600769A69 /* XCTestCase+Extensions.swift in Sources */,
 				94EE222624FBF8700005BC6F /* ServiceStatus.swift in Sources */,
+				943B09DF24FC182600769A69 /* CatsDetailViewControllerMock.swift in Sources */,
 				94EE223524FBFE8E0005BC6F /* CatsListViewControllerSpy.swift in Sources */,
+				943B09D824FC137B00769A69 /* CatsDetailWorkerMock.swift in Sources */,
+				943B09D324FC115400769A69 /* CatsDetailViewModelTests.swift in Sources */,
+				943B09DC24FC166400769A69 /* MocksEnum.swift in Sources */,
 				94EE222824FBFADA0005BC6F /* JsonLoader.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

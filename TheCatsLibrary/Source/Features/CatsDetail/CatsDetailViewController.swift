@@ -8,7 +8,7 @@
 
 import UIKit
 
-class CatsDetailViewController: UIViewController, CustomizableView, ViewControllerErrorProtocol {
+class CatsDetailViewController: UIViewController, CustomizableView, ViewControllerErrorProtocol, BindableView {
     
     // MARK: - Typealias
     
@@ -17,11 +17,11 @@ class CatsDetailViewController: UIViewController, CustomizableView, ViewControll
     // MARK: - Internal Properties
     
     var items: [CatsDetail.CatsDetailType] = []
-    
+    var viewModel: CatsDetailViewModelProtocol
+
     // MARK: - Private Properties
     
     private var indexPath: IndexPath?
-    private var viewModel: CatsDetailViewModelProtocol
     
     // MARK: - Init
     
@@ -48,9 +48,6 @@ class CatsDetailViewController: UIViewController, CustomizableView, ViewControll
         viewModel.initializer()
         viewModel.fetchCatDetails()
     }
-}
-
-extension CatsDetailViewController: BindableView {
     
     // MARK: - BindableView
     
