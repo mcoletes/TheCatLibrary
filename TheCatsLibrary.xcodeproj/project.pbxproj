@@ -195,6 +195,18 @@
 			path = Features;
 			sourceTree = "<group>";
 		};
+		9455167424FB791200327DA6 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				94712DD124F5F308003002C6 /* ReusableCells.swift */,
+				94876ABB24FB11B100BF6012 /* Spacing.swift */,
+				94876ABD24FB121A00BF6012 /* Fonts.swift */,
+				94876ABF24FB1C1800BF6012 /* States.swift */,
+				9455167024FB69C200327DA6 /* Icons.swift */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
 		9463F4E024F4A87E00186BDB /* Provider */ = {
 			isa = PBXGroup;
 			children = (
@@ -255,12 +267,8 @@
 		94712DD024F5F300003002C6 /* Configuration */ = {
 			isa = PBXGroup;
 			children = (
+				9455167424FB791200327DA6 /* UI */,
 				946BFEE224FAA72E00DC974C /* CommonTypes.swift */,
-				94712DD124F5F308003002C6 /* ReusableCells.swift */,
-				94876ABB24FB11B100BF6012 /* Spacing.swift */,
-				94876ABD24FB121A00BF6012 /* Fonts.swift */,
-				94876ABF24FB1C1800BF6012 /* States.swift */,
-				9455167024FB69C200327DA6 /* Icons.swift */,
 			);
 			path = Configuration;
 			sourceTree = "<group>";
