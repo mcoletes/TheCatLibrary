@@ -9,9 +9,9 @@
 import Foundation
 
 class JsonLoader {
-    func loadFromJsonFile<T: Decodable>(jsonFileName: String) -> T? {
+    func loadFromJsonFile<T: Decodable>(mock: Mocks) -> T? {
         let testBundle = Bundle(for: type(of: self))
-        if let path = testBundle.path(forResource: jsonFileName, ofType: "json") {
+        if let path = testBundle.path(forResource: mock.rawValue, ofType: "json") {
             do {
                 let data = try Data(contentsOf: URL(fileURLWithPath: path), options: .mappedIfSafe)
                 let model = try JSONDecoder().decode(T.self, from: data)

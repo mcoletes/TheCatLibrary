@@ -8,7 +8,7 @@
 
 import UIKit
 
-class CatsDetailViewController: UIViewController, CustomizableView, ViewControllerErrorProtocol {
+class CatsDetailViewController: UIViewController, CustomizableView, ViewControllerErrorProtocol, BindableView {
     
     // MARK: - Typealias
     
@@ -17,11 +17,11 @@ class CatsDetailViewController: UIViewController, CustomizableView, ViewControll
     // MARK: - Internal Properties
     
     var items: [CatsDetail.CatsDetailType] = []
+    var viewModel: CatsDetailViewModelProtocol
     
     // MARK: - Private Properties
     
     private var indexPath: IndexPath?
-    private var viewModel: CatsDetailViewModelProtocol
     
     // MARK: - Init
     
@@ -48,9 +48,6 @@ class CatsDetailViewController: UIViewController, CustomizableView, ViewControll
         viewModel.initializer()
         viewModel.fetchCatDetails()
     }
-}
-
-extension CatsDetailViewController: BindableView {
     
     // MARK: - BindableView
     
@@ -58,16 +55,22 @@ extension CatsDetailViewController: BindableView {
         viewModel.catState.bind { [weak self] (catDetail) in
             guard let self = self, let items = catDetail?.items else { return }
             self.items = items
-            self.customView.reload()
+            DispatchQueue.main.async {
+                self.customView.reload()
+            }
         }
         viewModel.title.bind { [weak self] title in
-            self?.title = title
+             DispatchQueue.main.async {
+                self?.title = title
+            }
         }
         
         viewModel.state.bind { [weak self] state in
             switch state {
             case .error(let message):
-                self?.displayError(message: message, actionButtonTitle: Text.warningButtonTryAgain.value, tryAgainAction: self?.viewModel.fetchCatDetails)
+                 DispatchQueue.main.async {
+                    self?.displayError(message: message, actionButtonTitle: Text.warningButtonTryAgain.value, tryAgainAction: self?.viewModel.fetchCatDetails)
+                }
             default:
                 break
             }
@@ -105,9 +108,6 @@ extension CatsDetailViewController: UITableViewDataSource, UITableViewDelegate {
             let cell: HorizontalScrollCell = tableView.dequeueReusableCell(forIndexPath: indexPath)
             cell.setup(behaviour: behaviour)
             return cell
-            //            let cell: ImageValueDescriptionCell = tableView.dequeueReusableCell(forIndexPath: indexPath)
-            //            cell.setup(title: text, subtitle: value, image: icon)
-            //            return cell
         }
     }
 }

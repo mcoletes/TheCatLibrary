@@ -14,7 +14,7 @@ class CatsListWorkerMock: CatsListWorker {
     override func fetchCatsList(request: CatsList.Request, completion: @escaping completionDataCallback<[Cat]>) {
         switch status {
         case .success:
-            if let catsList: [Cat] = JsonLoader().loadFromJsonFile(jsonFileName: "CatsList"), !isLastPage {
+            if let catsList: [Cat] = JsonLoader().loadFromJsonFile(mock: .catsList), !isLastPage {
                 completion(.success(catsList))
             } else {
                  completion(.success([]))

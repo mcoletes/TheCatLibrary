@@ -8,7 +8,7 @@
 
 import Foundation
 
-enum Status {
+enum Status: Equatable {
     case none
     case loading
     case success

@@ -28,11 +28,13 @@ class CatsDetailViewModel: CatsDetailViewModelProtocol {
     // MARK: - Private Properties
     
     private var cat: Cat
+    private var worker: CatsDetailWorker
     
     // MARK: - Init
     
-    init(cat: Cat) {
+    init(cat: Cat, worker: CatsDetailWorker = CatsDetailWorker()) {
         self.cat = cat
+        self.worker = worker
         catState = Bindable<CatsDetail.ViewState?>(nil)
     }
     
@@ -44,8 +46,7 @@ class CatsDetailViewModel: CatsDetailViewModelProtocol {
     }
     
     func fetchCatDetails() {
-        
-        fetchCatDetails(request: CatsDetail.Request(id: cat.id)) { [weak self] (result) in
+        worker.fetchCatDetails(request: CatsDetail.Request(id: cat.id)) { [weak self] result in
             guard let self = self else { return }
             switch result {
             case .success(let catDetail):
@@ -58,13 +59,4 @@ class CatsDetailViewModel: CatsDetailViewModelProtocol {
             }
         }
     }
-    
-    // MARK: - Private Methods
-    
-    private func fetchCatDetails(request: CatsDetail.Request, completion: @escaping completionDataCallback<[CatsDetail.CatDetail]>) {
-        let catsListProvider = CatsDetailProvider(request: request)
-        NetworkProvider(route: catsListProvider).fetch(completion: completion)
-    }
 }
-
-
