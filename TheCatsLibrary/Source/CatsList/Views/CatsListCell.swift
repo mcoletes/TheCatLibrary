@@ -11,14 +11,14 @@ import UIKit
 class CatsListCell: UICollectionViewCell, ReusableView {
     
     
-    //MARK: constants
+    // MARK: -  constants
     static let kSpacingStackViewElements: CGFloat = Spacing.defaultStackViewSpacing.rawValue
     static let kStackViewBorders: CGFloat = Spacing.defaultMarginSpacing.rawValue
     static let kFontTitle: UIFont = Font.Large.title.value
     static let kFontDescription: UIFont = Font.Large.subtitle.value
     
     
-    //MARK: Private Properties
+    // MARK: -  Private Properties
     
     private lazy var mainView: UIView = {
         let view = UIView()
@@ -56,12 +56,7 @@ class CatsListCell: UICollectionViewCell, ReusableView {
         return label
     }()
     
-    
-    func setup(name: String, description: String, color: UIColor) {
-        nameLabel.text = name
-        descriptionLabel.text = description
-        mainView.backgroundColor = color
-    }
+    // MARK: - init
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -72,6 +67,16 @@ class CatsListCell: UICollectionViewCell, ReusableView {
         super.init(coder: coder)
         setup()
     }
+    
+    // MARK: - Internal Methods
+    
+    func setup(name: String, description: String, color: UIColor) {
+        nameLabel.text = name
+        descriptionLabel.text = description
+        mainView.backgroundColor = color
+    }
+    
+    // MARK: - Private Methods
     
     private func setup(){
         setupUI()
@@ -85,6 +90,9 @@ class CatsListCell: UICollectionViewCell, ReusableView {
 }
 
 extension CatsListCell: ViewCodeProtocol {
+    
+    // MARK: - ViewCodeProtocol
+    
     func addViewHierarchy() {
         addSubview(mainView)
         mainView.addSubview(stackView)

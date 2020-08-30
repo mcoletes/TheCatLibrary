@@ -19,16 +19,24 @@ protocol CatsDetailViewModelProtocol {
 
 class CatsDetailViewModel: CatsDetailViewModelProtocol {
     
+    // MARK: - Internal Properties
+    
     var catState: Bindable<CatsDetail.ViewState?>
     var title: Bindable<String> = Bindable<String>("")
     var state: Bindable<Status> = Bindable<Status>(.none)
     
+    // MARK: - Private Properties
+    
     private var cat: Cat
+    
+    // MARK: - Init
     
     init(cat: Cat) {
         self.cat = cat
         catState = Bindable<CatsDetail.ViewState?>(nil)
     }
+    
+    // MARK: - Internal Methods
     
     func initializer() {
         title.value = cat.name
@@ -36,7 +44,7 @@ class CatsDetailViewModel: CatsDetailViewModelProtocol {
     }
     
     func fetchCatDetails() {
-
+        
         fetchCatDetails(request: CatsDetail.Request(id: cat.id)) { [weak self] (result) in
             guard let self = self else { return }
             switch result {
@@ -50,6 +58,8 @@ class CatsDetailViewModel: CatsDetailViewModelProtocol {
             }
         }
     }
+    
+    // MARK: - Private Methods
     
     private func fetchCatDetails(request: CatsDetail.Request, completion: @escaping completionDataCallback<[CatsDetail.CatDetail]>) {
         let catsListProvider = CatsDetailProvider(request: request)

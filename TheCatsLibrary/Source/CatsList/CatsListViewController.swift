@@ -21,23 +21,23 @@ protocol CatsListDisplayLogic: class {
 
 class CatsListViewController: UIViewController, CatsListDisplayLogic, ViewControllerErrorProtocol {
     
-    // MARK: IBOutlet
+    // MARK: - IBOutlet
     
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var leftCollectionViewMargin: NSLayoutConstraint!
     @IBOutlet weak var rightCollectionViewMargin: NSLayoutConstraint!
     
-    // MARK: Internal Properties
+    // MARK: - Internal Properties
     
     var interactor: CatsListBusinessLogic?
     var router: (NSObjectProtocol & CatsListRoutingLogic & CatsListDataPassing)?
     
-    // MARK: Private Properties
+    // MARK: - Private Properties
     
     private var viewModel = CatsList.ViewModel()
     private var footerHeight: CGFloat = 80
     
-    // MARK: Init
+    // MARK: - Init
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
         setup()
@@ -48,7 +48,7 @@ class CatsListViewController: UIViewController, CatsListDisplayLogic, ViewContro
         setup()
     }
     
-    // MARK: Override Methods
+    // MARK: - Override Methods
     
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
         super.viewWillTransition(to: size, with: coordinator)
@@ -58,7 +58,7 @@ class CatsListViewController: UIViewController, CatsListDisplayLogic, ViewContro
         flowLayout.invalidateLayout()
     }
     
-    // MARK: Setup
+    // MARK: - Setup
     
     private func setup() {
         let viewController = self
@@ -83,7 +83,7 @@ class CatsListViewController: UIViewController, CatsListDisplayLogic, ViewContro
         fetchCats()
     }
     
-    // MARK: Public Methods
+    // MARK: - Internal Methods
     
     func startLoading() {
         footerHeight = 50
@@ -104,7 +104,7 @@ class CatsListViewController: UIViewController, CatsListDisplayLogic, ViewContro
         router?.routeToCatDetail()
     }
     
-    // MARK: Private Methods
+    // MARK: - Private Methods
     
     private func setupCollectionView() {
         collectionView.prefetchDataSource = self
@@ -125,7 +125,7 @@ class CatsListViewController: UIViewController, CatsListDisplayLogic, ViewContro
 
 extension CatsListViewController: UICollectionViewDataSource, UICollectionViewDelegate {
     
-    // MARK: UICollectionViewDataSource, UICollectionViewDelegate
+    // MARK: - UICollectionViewDataSource, UICollectionViewDelegate
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return viewModel.cats.count
@@ -143,6 +143,9 @@ extension CatsListViewController: UICollectionViewDataSource, UICollectionViewDe
     }
 }
 extension CatsListViewController: UICollectionViewDataSourcePrefetching {
+    
+    // MARK: - UICollectionViewDataSourcePrefetching
+    
     func collectionView(_ collectionView: UICollectionView, prefetchItemsAt indexPaths: [IndexPath]) {
         for indexPath in indexPaths {
             interactor?.loadNextPageIfNeeded(for: indexPath.row)
@@ -151,7 +154,7 @@ extension CatsListViewController: UICollectionViewDataSourcePrefetching {
 }
 extension CatsListViewController: UICollectionViewDelegateFlowLayout {
     
-    // MARK: UICollectionViewDelegateFlowLayout
+    // MARK: - UICollectionViewDelegateFlowLayout
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let cat = viewModel.cats[indexPath.row]

@@ -10,13 +10,18 @@ import Foundation
 
 class CatsListProvider: URLRequestProtocol {
     
-    var request: CatsList.Request
+    // MARK: - Internal Properties
     
+    var request: CatsList.Request
     var httpMethod: HTTPMethod = .get
-
+    
+    // MARK: - init
+    
     init(request: CatsList.Request) {
         self.request = request
     }
+    
+    // MARK: - Internal Methods
     
     func urlParameters() -> [URLQueryItem] {
         return  [URLQueryItem(name: "page", value: "\(request.page)"), URLQueryItem(name: "limit", value: "\(request.limit)")]

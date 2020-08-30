@@ -11,6 +11,7 @@
 		423AF2802C7A2285B3470D1C /* Pods_TheCatsLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8D395FB113C82D946197E230 /* Pods_TheCatsLibrary.framework */; };
 		83B4D967C6CC1CBB4E4F04FF /* Pods_TheCatsLibrary_TheCatsLibraryUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F684111DB03DCE4D2CCBBAA6 /* Pods_TheCatsLibrary_TheCatsLibraryUITests.framework */; };
 		9455166D24FB2EE600327DA6 /* ImageValueDescriptionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9455166C24FB2EE600327DA6 /* ImageValueDescriptionCell.swift */; };
+		9455166F24FB53A100327DA6 /* HorizontalScrollCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9455166E24FB53A100327DA6 /* HorizontalScrollCell.swift */; };
 		9463F4E224F4A89200186BDB /* CatsListProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9463F4E124F4A89200186BDB /* CatsListProvider.swift */; };
 		9463F4FF24F4AB8E00186BDB /* CatsListPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9463F4F924F4AB8E00186BDB /* CatsListPresenter.swift */; };
 		9463F50024F4AB8E00186BDB /* CatsListWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9463F4FA24F4AB8E00186BDB /* CatsListWorker.swift */; };
@@ -79,6 +80,7 @@
 		88E5499B0179225858431037 /* Pods-TheCatsLibrary-TheCatsLibraryUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TheCatsLibrary-TheCatsLibraryUITests.debug.xcconfig"; path = "Target Support Files/Pods-TheCatsLibrary-TheCatsLibraryUITests/Pods-TheCatsLibrary-TheCatsLibraryUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		8D395FB113C82D946197E230 /* Pods_TheCatsLibrary.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TheCatsLibrary.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9455166C24FB2EE600327DA6 /* ImageValueDescriptionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageValueDescriptionCell.swift; sourceTree = "<group>"; };
+		9455166E24FB53A100327DA6 /* HorizontalScrollCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HorizontalScrollCell.swift; sourceTree = "<group>"; };
 		9463F4E124F4A89200186BDB /* CatsListProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatsListProvider.swift; sourceTree = "<group>"; };
 		9463F4F924F4AB8E00186BDB /* CatsListPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatsListPresenter.swift; sourceTree = "<group>"; };
 		9463F4FA24F4AB8E00186BDB /* CatsListWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatsListWorker.swift; sourceTree = "<group>"; };
@@ -265,6 +267,7 @@
 				94876AB424FAFAB500BF6012 /* CatsImageCell.swift */,
 				94876AB924FB10D500BF6012 /* TitleSubstitleCell.swift */,
 				9455166C24FB2EE600327DA6 /* ImageValueDescriptionCell.swift */,
+				9455166E24FB53A100327DA6 /* HorizontalScrollCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -683,6 +686,7 @@
 				94876ABE24FB121A00BF6012 /* Fonts.swift in Sources */,
 				94F5BF9624F4A1530005C3E6 /* ENV.swift in Sources */,
 				9455166D24FB2EE600327DA6 /* ImageValueDescriptionCell.swift in Sources */,
+				9455166F24FB53A100327DA6 /* HorizontalScrollCell.swift in Sources */,
 				94876ABA24FB10D500BF6012 /* TitleSubstitleCell.swift in Sources */,
 				946BFEF124FAB30F00DC974C /* CatsDetailProvider.swift in Sources */,
 				946BFEDE24FA9E1000DC974C /* LoadingView.swift in Sources */,

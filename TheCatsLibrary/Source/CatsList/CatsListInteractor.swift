@@ -24,12 +24,14 @@ protocol CatsListDataStore {
 
 class CatsListInteractor: CatsListBusinessLogic, CatsListDataStore {
     
-    // MARK: Properties
+    // MARK: - Properties
+    
     var presenter: CatsListPresentationLogic?
     var availableCats: [Cat] = []
     var cat: Cat?
     
-    // MARK: Private Properties
+    // MARK: - Private Properties
+    
     private var worker: CatsListWorker
     private var currentPage: Int = 0
     private var pageSize: Int = 20
@@ -41,7 +43,7 @@ class CatsListInteractor: CatsListBusinessLogic, CatsListDataStore {
         self.worker = worker
     }
     
-    // MARK: Methods
+    // MARK: - Internal Methods
     
     func fetchListOfCats() {
         self.presenter?.presentLoading()

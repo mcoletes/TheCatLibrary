@@ -21,7 +21,7 @@ class CatsDetailViewController: UIViewController, CustomizableView, ViewControll
     private var indexPath: IndexPath?
     private var viewModel: CatsDetailViewModelProtocol
 
-    // MARK: - Initialier
+    // MARK: - Init
     init(viewModel: CatsDetailViewModelProtocol) {
         self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
@@ -75,6 +75,9 @@ extension CatsDetailViewController: BindableView {
 
 
 extension CatsDetailViewController: UITableViewDataSource, UITableViewDelegate {
+    
+    // MARK: - UITableViewDataSource, UITableViewDelegate
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return items.count
     }
@@ -96,10 +99,13 @@ extension CatsDetailViewController: UITableViewDataSource, UITableViewDelegate {
                 cell.setup()
             }
             return cell
-        case .iconTextValue(let icon, let text, let value):
-            let cell: ImageValueDescriptionCell = tableView.dequeueReusableCell(forIndexPath: indexPath)
-            cell.setup(title: text, subtitle: value, image: icon)
+        case .iconTextValue(let behaviour):
+            let cell: HorizontalScrollCell = tableView.dequeueReusableCell(forIndexPath: indexPath)
+            cell.setup(behaviour: behaviour)
             return cell
+//            let cell: ImageValueDescriptionCell = tableView.dequeueReusableCell(forIndexPath: indexPath)
+//            cell.setup(title: text, subtitle: value, image: icon)
+//            return cell
         }
     }
 }

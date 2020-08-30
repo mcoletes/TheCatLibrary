@@ -10,6 +10,8 @@ import UIKit
 
 class CatsDetailView: UIView {
     
+    // MARK: - Private Properties
+
     private lazy var tableView: UITableView = {
         let tableView = UITableView()
         tableView.translatesAutoresizingMaskIntoConstraints = false
@@ -20,6 +22,8 @@ class CatsDetailView: UIView {
         return tableView
     }()
     
+    // MARK: - Internal Methods
+
     func setup(delegate: UITableViewDelegate, dataSource: UITableViewDataSource) {
         addViewHierarchy()
         addConstraints()
@@ -33,14 +37,19 @@ class CatsDetailView: UIView {
         self.tableView.reloadData()
     }
     
+    // MARK: - Private Methods
+    
     private func registerCells() {
         self.tableView.register(TitleSubstitleCell.self)
         self.tableView.register(CatsImageCell.self)
-        self.tableView.register(ImageValueDescriptionCell.self)
+        self.tableView.register(HorizontalScrollCell.self)
     }
 }
 
 extension CatsDetailView: ViewCodeProtocol {
+    
+    // MARK: - ViewCodeProtocol
+    
     func addViewHierarchy() {
         addSubview(tableView)
     }

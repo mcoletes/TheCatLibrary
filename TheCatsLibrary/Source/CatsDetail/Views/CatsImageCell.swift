@@ -15,6 +15,8 @@ protocol UpdateImageProtocol {
 
 class CatsImageCell: UITableViewCell, ReusableView {
     
+    // MARK: - Private Properties
+    
     private lazy var catImage: UIImageView = {
         let imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
@@ -23,6 +25,8 @@ class CatsImageCell: UITableViewCell, ReusableView {
         imageView.layer.cornerRadius = 10
         return imageView
     }()
+    
+    // MARK: - Init
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -34,6 +38,8 @@ class CatsImageCell: UITableViewCell, ReusableView {
         setupUI()
     }
     
+    // MARK: - Public Methods
+    
     func setup(url: URL) {
         catImage.sd_setImage(with: url, placeholderImage: #imageLiteral(resourceName: "cat_icon"))
     }
@@ -42,6 +48,8 @@ class CatsImageCell: UITableViewCell, ReusableView {
         catImage.image = #imageLiteral(resourceName: "cat_icon")
     }
     
+    // MARK: - Private Methods
+    
     private func setupUI() {
         addViewHierarchy()
         addConstraints()
@@ -49,6 +57,9 @@ class CatsImageCell: UITableViewCell, ReusableView {
     }
 }
 extension CatsImageCell: ViewCodeProtocol {
+    
+    // MARK: - ViewCodeProtocol
+    
     func addViewHierarchy() {
         addSubview(catImage)
     }
