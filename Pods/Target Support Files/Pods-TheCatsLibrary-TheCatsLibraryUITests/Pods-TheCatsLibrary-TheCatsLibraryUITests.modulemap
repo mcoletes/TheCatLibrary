@@ -1,0 +1,6 @@
+framework module Pods_TheCatsLibrary_TheCatsLibraryUITests {
+  umbrella header "Pods-TheCatsLibrary-TheCatsLibraryUITests-umbrella.h"
+
+  export *
+  module * { export * }
+}
