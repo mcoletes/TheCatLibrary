@@ -10,8 +10,12 @@ import UIKit
 
 class CatsDetailDataSource: NSObject, UITableViewDataSource {
     
+    // MARK: - Internal Properties
+
     var items: [CatsDetail.CatsDetailType]
     
+    // MARK: - Init
+
     init(items: [CatsDetail.CatsDetailType] = []) {
         self.items = items
     }
