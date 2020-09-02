@@ -64,7 +64,7 @@ extension CatsListCollectionViewDelegates: UICollectionViewDelegateFlowLayout {
         case UICollectionView.elementKindSectionFooter:
             return collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: LoadingView.defaultReuseIdentifier, for: indexPath)
         default:
-            assert(false, "Unexpected element kind")
+           return UICollectionReusableView()
         }
     }
 }
