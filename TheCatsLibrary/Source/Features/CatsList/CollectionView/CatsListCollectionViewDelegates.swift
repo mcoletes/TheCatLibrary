@@ -10,16 +10,22 @@ import UIKit
 
 class CatsListCollectionViewDelegates: NSObject, UICollectionViewDataSource, UICollectionViewDelegate {
     
+    // MARK: - Internal Properties
+    
     var cats: [CatsList.CatVM]
     var footerHeight: CGFloat = 50
     
+    // MARK: - Private Properties
+    
     private var interactor: CatsListBusinessLogic?
+    
+    // MARK: - Init
     
     init(cats: [CatsList.CatVM] = [], interactor: CatsListBusinessLogic) {
         self.interactor = interactor
         self.cats = cats
     }
-
+    
     // MARK: - UICollectionViewDataSource, UICollectionViewDelegate
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -64,7 +70,7 @@ extension CatsListCollectionViewDelegates: UICollectionViewDelegateFlowLayout {
         case UICollectionView.elementKindSectionFooter:
             return collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: LoadingView.defaultReuseIdentifier, for: indexPath)
         default:
-           return UICollectionReusableView()
+            return UICollectionReusableView()
         }
     }
 }
