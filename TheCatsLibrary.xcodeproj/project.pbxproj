@@ -35,6 +35,7 @@
 		9455166D24FB2EE600327DA6 /* ImageValueDescriptionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9455166C24FB2EE600327DA6 /* ImageValueDescriptionCell.swift */; };
 		9455166F24FB53A100327DA6 /* HorizontalScrollCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9455166E24FB53A100327DA6 /* HorizontalScrollCell.swift */; };
 		9455167124FB69C200327DA6 /* Icons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9455167024FB69C200327DA6 /* Icons.swift */; };
+		9461AC67250042600019B5E7 /* CatsDetailDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9461AC66250042600019B5E7 /* CatsDetailDataSource.swift */; };
 		9463F4E224F4A89200186BDB /* CatsListProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9463F4E124F4A89200186BDB /* CatsListProvider.swift */; };
 		9463F4FF24F4AB8E00186BDB /* CatsListPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9463F4F924F4AB8E00186BDB /* CatsListPresenter.swift */; };
 		9463F50024F4AB8E00186BDB /* CatsListWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9463F4FA24F4AB8E00186BDB /* CatsListWorker.swift */; };
@@ -145,6 +146,7 @@
 		9455166C24FB2EE600327DA6 /* ImageValueDescriptionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageValueDescriptionCell.swift; sourceTree = "<group>"; };
 		9455166E24FB53A100327DA6 /* HorizontalScrollCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HorizontalScrollCell.swift; sourceTree = "<group>"; };
 		9455167024FB69C200327DA6 /* Icons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Icons.swift; sourceTree = "<group>"; };
+		9461AC66250042600019B5E7 /* CatsDetailDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatsDetailDataSource.swift; sourceTree = "<group>"; };
 		9463F4E124F4A89200186BDB /* CatsListProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatsListProvider.swift; sourceTree = "<group>"; };
 		9463F4F924F4AB8E00186BDB /* CatsListPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatsListPresenter.swift; sourceTree = "<group>"; };
 		9463F4FA24F4AB8E00186BDB /* CatsListWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatsListWorker.swift; sourceTree = "<group>"; };
@@ -462,6 +464,7 @@
 				946BFEEC24FAB2F400DC974C /* CatsDetailViewController.swift */,
 				946BFEEA24FAB2DE00DC974C /* CatsDetailView.swift */,
 				943B09D424FC124B00769A69 /* CatsDetailWorker.swift */,
+				9461AC66250042600019B5E7 /* CatsDetailDataSource.swift */,
 			);
 			path = CatsDetail;
 			sourceTree = "<group>";
@@ -1012,6 +1015,7 @@
 				9463F50224F4AB8E00186BDB /* CatsListModels.swift in Sources */,
 				946BFEE124FAA6FC00DC974C /* ViewControllerErrorProtocol.swift in Sources */,
 				946BFEEB24FAB2DE00DC974C /* CatsDetailView.swift in Sources */,
+				9461AC67250042600019B5E7 /* CatsDetailDataSource.swift in Sources */,
 				94712DD224F5F308003002C6 /* ReusableCells.swift in Sources */,
 				94876AB124FAF5FD00BF6012 /* Bindable.swift in Sources */,
 				94F5BF5924F49E6F0005C3E6 /* AppDelegate.swift in Sources */,
