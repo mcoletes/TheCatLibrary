@@ -24,11 +24,10 @@ class CatsDetailView: UIView {
     
     // MARK: - Internal Methods
 
-    func setup(delegate: UITableViewDelegate, dataSource: UITableViewDataSource) {
+    func setup(dataSource: UITableViewDataSource) {
         addViewHierarchy()
         addConstraints()
         registerCells()
-        tableView.delegate = delegate
         tableView.dataSource = dataSource
         self.backgroundColor = .white
     }
